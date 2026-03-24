@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500&display=swap');
 
-* { margin:0; padding:0; box-sizing:border-box; }
-
 :root {
   --text:#e8e4d9;
   --muted:#cfc9b5;
@@ -18,11 +16,12 @@ body {
   overflow:hidden;
 }
 
+/* Background */
 body::before {
   content:"";
   position:fixed;
   inset:-20px;
-  background:url('../assets/images/background.png') right center/cover no-repeat;
+  background:url('../assets/images/background.png') right/cover no-repeat;
   transform:translate(calc(var(--mouseX)*0.02), calc(var(--mouseY)*0.02));
   filter:brightness(calc(0.6 + var(--visibility)*0.5));
   z-index:-2;
@@ -33,10 +32,11 @@ body::after {
   position:fixed;
   inset:0;
   backdrop-filter:blur(calc((1 - var(--visibility))*6px));
-  background:linear-gradient(to right,#000 0%,rgba(0,0,0,0.85)40%,transparent 85%);
+  background:linear-gradient(to right,#000 0%,rgba(0,0,0,0.8)50%,transparent 90%);
   z-index:-1;
 }
 
+/* Layout */
 .layout {
   display:flex;
   gap:50px;
@@ -45,29 +45,37 @@ body::after {
   height:calc(100vh - 120px);
 }
 
-.menu { display:flex; flex-direction:column; gap:20px; }
+.menu-item {
+  opacity:0.4;
+  cursor:pointer;
+}
+.menu-item.active { opacity:1; }
 
-.menu-item { opacity:0.4; cursor:pointer; }
-.menu-item.active { opacity:1; border-left:2px solid var(--text); padding-left:10px; }
-
+/* Content */
 .content-box {
   max-width:520px;
-  height:100%;
   overflow-y:auto;
 }
 
-.content { display:none; }
-.content.active { display:block; }
+.content {
+  display:none;
+  opacity:0;
+  transform:translateY(10px);
+  transition:0.4s;
+}
 
-.content p { margin-bottom:12px; line-height:1.6; color:var(--muted); }
+.content.active {
+  display:block;
+  opacity:1;
+  transform:translateY(0);
+}
 
-.audio-control { position:fixed; bottom:20px; right:20px; }
-.legal-button { position:fixed; bottom:20px; left:20px; }
-
+/* Legal Overlay */
 .legal-overlay {
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.8);
+  backdrop-filter:blur(6px);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -78,14 +86,5 @@ body::after {
 .legal-card {
   background:#111;
   padding:30px;
-  max-width:500px;
-}
-
-.close-btn {
-  position:absolute;
-  right:20px;
-  top:10px;
-  background:none;
-  border:none;
-  color:white;
+  border:1px solid rgba(255,255,255,0.2);
 }
