@@ -1,10 +1,8 @@
 const items = document.querySelectorAll(".menu-item");
 const contents = document.querySelectorAll(".content");
 
-/* Kapitelwechsel */
 items.forEach(item => {
   item.addEventListener("click", () => {
-
     items.forEach(i => i.classList.remove("active"));
     item.classList.add("active");
 
@@ -19,7 +17,6 @@ items.forEach(item => {
         setTimeout(() => c.classList.add("active"), 80);
       }
     });
-
   });
 });
 
@@ -38,23 +35,33 @@ const button = document.getElementById("audioToggle");
 
 let isPlaying = false;
 
-if (localStorage.getItem("kaida_audio") === "playing") {
-  audio.volume = 0.3;
-  audio.play().catch(() => {});
-  isPlaying = true;
-  button.textContent = "⏸ Sound";
-}
-
 button.addEventListener("click", () => {
   if (isPlaying) {
     audio.pause();
     button.textContent = "▶ Sound";
-    localStorage.setItem("kaida_audio", "paused");
   } else {
     audio.volume = 0.3;
     audio.play();
     button.textContent = "⏸ Sound";
-    localStorage.setItem("kaida_audio", "playing");
   }
   isPlaying = !isPlaying;
+});
+
+/* Legal */
+const openLegal = document.getElementById("openLegal");
+const closeLegal = document.getElementById("closeLegal");
+const overlay = document.getElementById("legalOverlay");
+
+openLegal.addEventListener("click", () => {
+  overlay.classList.remove("hidden");
+});
+
+closeLegal.addEventListener("click", () => {
+  overlay.classList.add("hidden");
+});
+
+overlay.addEventListener("click", (e) => {
+  if (e.target === overlay) {
+    overlay.classList.add("hidden");
+  }
 });
