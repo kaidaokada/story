@@ -27,6 +27,7 @@ body::before {
   z-index:-2;
 }
 
+/* Fade */
 body::after {
   content:"";
   position:fixed;
@@ -45,11 +46,23 @@ body::after {
   height:calc(100vh - 120px);
 }
 
+.menu {
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
 .menu-item {
   opacity:0.4;
   cursor:pointer;
+  transition:0.3s;
 }
-.menu-item.active { opacity:1; }
+
+.menu-item.active {
+  opacity:1;
+  border-left:2px solid var(--text);
+  padding-left:10px;
+}
 
 /* Content */
 .content-box {
@@ -70,11 +83,24 @@ body::after {
   transform:translateY(0);
 }
 
-/* Legal Overlay */
+/* Buttons */
+button {
+  background:rgba(20,20,20,0.8);
+  border:1px solid rgba(255,255,255,0.2);
+  color:var(--text);
+  padding:10px 15px;
+  cursor:pointer;
+}
+
+/* Positions */
+.audio-control { position:fixed; bottom:20px; right:20px; }
+.legal-button { position:fixed; bottom:20px; left:20px; }
+
+/* Overlay */
 .legal-overlay {
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.7);
   backdrop-filter:blur(6px);
   display:flex;
   align-items:center;
@@ -84,7 +110,17 @@ body::after {
 .hidden { display:none; }
 
 .legal-card {
-  background:#111;
+  background:rgba(20,20,20,0.9);
   padding:30px;
+  max-width:500px;
   border:1px solid rgba(255,255,255,0.2);
+  position:relative;
+}
+
+.close-btn {
+  position:absolute;
+  top:10px;
+  right:15px;
+  background:none;
+  border:none;
 }
