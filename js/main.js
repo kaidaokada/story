@@ -24,6 +24,7 @@ items.forEach(item=>{
 document.addEventListener("mousemove",(e)=>{
   const x=(e.clientX/window.innerWidth-0.5)*40;
   const y=(e.clientY/window.innerHeight-0.5)*40;
+
   document.documentElement.style.setProperty("--mouseX",`${x}px`);
   document.documentElement.style.setProperty("--mouseY",`${y}px`);
 });
@@ -33,12 +34,17 @@ const audio=document.getElementById("bgm");
 const btn=document.getElementById("audioToggle");
 
 btn.onclick=()=>{
-  if(audio.paused){audio.play();btn.textContent="⏸";}
-  else{audio.pause();btn.textContent="▶";}
+  if(audio.paused){audio.play();btn.textContent="⏸ Sound";}
+  else{audio.pause();btn.textContent="▶ Sound";}
 };
 
 /* Legal */
 const overlay=document.getElementById("legalOverlay");
 document.getElementById("openLegal").onclick=()=>overlay.classList.remove("hidden");
 document.getElementById("closeLegal").onclick=()=>overlay.classList.add("hidden");
-overlay.onclick=e=>{if(e.target===overlay)overlay.classList.add("hidden");};
+
+overlay.onclick=(e)=>{
+  if(e.target===overlay){
+    overlay.classList.add("hidden");
+  }
+};
