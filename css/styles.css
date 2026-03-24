@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
   --text: #e8e4d9;
@@ -66,12 +62,6 @@ body::after {
   to { transform: translateY(-200px); }
 }
 
-/* Header */
-header {
-  margin-left: 80px;
-  padding-top: 40px;
-}
-
 /* Layout */
 .layout {
   display: flex;
@@ -81,12 +71,7 @@ header {
   height: calc(100vh - 120px);
 }
 
-/* Menu */
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+.menu { display: flex; flex-direction: column; gap: 20px; }
 
 .menu-item {
   cursor: pointer;
@@ -100,24 +85,13 @@ header {
   padding-left: 10px;
 }
 
-/* Content scroll */
+/* Content */
 .content-box {
   max-width: 520px;
   height: 100%;
   overflow-y: auto;
-  padding-right: 10px;
 }
 
-.content-box::-webkit-scrollbar {
-  width: 4px;
-}
-
-.content-box::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.2);
-  border-radius: 10px;
-}
-
-/* Content */
 .content {
   display: none;
   opacity: 0;
@@ -146,10 +120,42 @@ header {
   right: 20px;
 }
 
-button {
-  background: rgba(20,20,20,0.8);
+/* Legal */
+.legal-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+.legal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.hidden {
+  display: none;
+}
+
+.legal-card {
+  background: rgba(20,20,20,0.9);
   border: 1px solid rgba(255,255,255,0.2);
-  color: var(--text);
-  padding: 10px 15px;
+  padding: 30px;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: white;
   cursor: pointer;
 }
