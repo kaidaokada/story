@@ -1,67 +1,48 @@
-const items = document.querySelectorAll(".menu-item");
-const contents = document.querySelectorAll(".content");
+const items=document.querySelectorAll(".menu-item");
+const contents=document.querySelectorAll(".content");
 
-items.forEach(item => {
-  item.addEventListener("click", () => {
-    items.forEach(i => i.classList.remove("active"));
+items.forEach(item=>{
+  item.addEventListener("click",()=>{
+    items.forEach(i=>i.classList.remove("active"));
     item.classList.add("active");
 
-    const target = item.dataset.target;
-    const visibility = item.dataset.visibility;
+    const target=item.dataset.target;
+    const visibility=item.dataset.visibility;
+    document.documentElement.style.setProperty("--visibility",visibility);
 
-    document.documentElement.style.setProperty("--visibility", visibility);
-
-    contents.forEach(c => {
+    contents.forEach(c=>{
       c.classList.remove("active");
-      if (c.id === target) {
-        setTimeout(() => c.classList.add("active"), 80);
+      if(c.id===target){
+        c.classList.add("active");
       }
     });
   });
 });
 
 /* Parallax */
-document.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 40;
-  const y = (e.clientY / window.innerHeight - 0.5) * 40;
-
-  document.documentElement.style.setProperty("--mouseX", `${x}px`);
-  document.documentElement.style.setProperty("--mouseY", `${y}px`);
+document.addEventListener("mousemove",(e)=>{
+  const x=(e.clientX/window.innerWidth-0.5)*40;
+  const y=(e.clientY/window.innerHeight-0.5)*40;
+  document.documentElement.style.setProperty("--mouseX",`${x}px`);
+  document.documentElement.style.setProperty("--mouseY",`${y}px`);
 });
 
 /* Audio */
-const audio = document.getElementById("bgm");
-const button = document.getElementById("audioToggle");
+const audio=document.getElementById("bgm");
+const btn=document.getElementById("audioToggle");
+let playing=false;
 
-let isPlaying = false;
-
-button.addEventListener("click", () => {
-  if (isPlaying) {
-    audio.pause();
-    button.textContent = "▶ Sound";
-  } else {
-    audio.volume = 0.3;
-    audio.play();
-    button.textContent = "⏸ Sound";
-  }
-  isPlaying = !isPlaying;
+btn.addEventListener("click",()=>{
+  if(playing){audio.pause();btn.textContent="▶ Sound";}
+  else{audio.play();btn.textContent="⏸ Sound";}
+  playing=!playing;
 });
 
 /* Legal */
-const openLegal = document.getElementById("openLegal");
-const closeLegal = document.getElementById("closeLegal");
-const overlay = document.getElementById("legalOverlay");
+const open=document.getElementById("openLegal");
+const close=document.getElementById("closeLegal");
+const overlay=document.getElementById("legalOverlay");
 
-openLegal.addEventListener("click", () => {
-  overlay.classList.remove("hidden");
-});
-
-closeLegal.addEventListener("click", () => {
-  overlay.classList.add("hidden");
-});
-
-overlay.addEventListener("click", (e) => {
-  if (e.target === overlay) {
-    overlay.classList.add("hidden");
-  }
-});
+open.onclick=()=>overlay.classList.remove("hidden");
+close.onclick=()=>overlay.classList.add("hidden");
+overlay.onclick=(e)=>{if(e.target===overlay)overlay.classList.add("hidden");};
