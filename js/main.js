@@ -2,21 +2,22 @@ const items=document.querySelectorAll(".menu-item");
 const contents=document.querySelectorAll(".content");
 
 items.forEach(item=>{
-  item.addEventListener("click",()=>{
+  item.onclick=()=>{
     items.forEach(i=>i.classList.remove("active"));
     item.classList.add("active");
 
     const target=item.dataset.target;
     const visibility=item.dataset.visibility;
+
     document.documentElement.style.setProperty("--visibility",visibility);
 
     contents.forEach(c=>{
       c.classList.remove("active");
       if(c.id===target){
-        c.classList.add("active");
+        setTimeout(()=>c.classList.add("active"),50);
       }
     });
-  });
+  };
 });
 
 /* Parallax */
@@ -30,19 +31,14 @@ document.addEventListener("mousemove",(e)=>{
 /* Audio */
 const audio=document.getElementById("bgm");
 const btn=document.getElementById("audioToggle");
-let playing=false;
 
-btn.addEventListener("click",()=>{
-  if(playing){audio.pause();btn.textContent="▶ Sound";}
-  else{audio.play();btn.textContent="⏸ Sound";}
-  playing=!playing;
-});
+btn.onclick=()=>{
+  if(audio.paused){audio.play();btn.textContent="⏸";}
+  else{audio.pause();btn.textContent="▶";}
+};
 
 /* Legal */
-const open=document.getElementById("openLegal");
-const close=document.getElementById("closeLegal");
 const overlay=document.getElementById("legalOverlay");
-
-open.onclick=()=>overlay.classList.remove("hidden");
-close.onclick=()=>overlay.classList.add("hidden");
-overlay.onclick=(e)=>{if(e.target===overlay)overlay.classList.add("hidden");};
+document.getElementById("openLegal").onclick=()=>overlay.classList.remove("hidden");
+document.getElementById("closeLegal").onclick=()=>overlay.classList.add("hidden");
+overlay.onclick=e=>{if(e.target===overlay)overlay.classList.add("hidden");};
