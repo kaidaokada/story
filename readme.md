@@ -1,22 +1,27 @@
 # Kaida Story
 
-Atmosphaerische Single-Page-Story ueber die Figur Kaida. Das Projekt ist ein statisches Frontend mit HTML, CSS, JavaScript, Hintergrundgrafik und optionaler Musik.
+Atmosphaerische Single-Page-Story fuer zwei Figuren, Kaida Okada und Torinai Nihal. Das Projekt ist ein statisches Frontend mit Charakterauswahl, dynamischen Hintergruenden, getrennten Galerien und optionaler Musik.
 
 ## Projektstruktur
 
-- `index.html`: Semantische Struktur, Story-Inhalte, Audio- und Dialog-Markup
-- `css/styles.css`: Layout, Atmosphaere, responsive Verhalten, Dialog- und Audio-Styling
-- `js/main.js`: Kapitelwechsel, Audio-Steuerung, Consent-Speicherung, Dialog-Interaktion
-- `assets/images/background.png`: Hintergrundmotiv
-- `assets/audio/kaida.ogg`: Hintergrundmusik
+- `index.html`: Charakterauswahl, gemeinsame Seitenhuelle, Audio- und Dialog-Markup
+- `css/styles.css`: Selection-Screen, Charakter-Themes, Layout, Galerie- und Dialog-Styling
+- `js/main.js`: Charakterdaten, Kapitelwechsel, Galerie-Laden, Audio-Steuerung, Consent-Speicherung
+- `assets/images/backgrounds/selection/torikaida.png`: Hintergrund der Charakterauswahl
+- `assets/images/backgrounds/Kaida`: Kaidas Hintergruende
+- `assets/images/backgrounds/Tori`: Toris Hintergruende
+- `assets/images/gallery_kaida`: Automatisch geladene Kaida-Galerie
+- `assets/images/gallery_tori`: Automatisch geladene Tori-Galerie
+- `assets/audio/kaida.ogg` und `assets/audio/tori.ogg`: Charaktermusik
 
 ## Verhalten
 
-- Kapitel werden ohne Seitenwechsel umgeschaltet.
+- Beim Laden erscheint immer zuerst die Charakterauswahl.
+- Kapitel werden danach ohne Seitenwechsel umgeschaltet.
 - Die aktive Sektion kann ueber den URL-Hash direkt verlinkt werden.
 - Lautstaerke und Audio-Consent werden in `localStorage` gespeichert, falls verfuegbar.
 - Bei reduziertem Bewegungsschema werden Maus-Parallax und Animationen abgeschwaecht.
-- Die Galerie liest neue Bilder automatisch aus `assets/images/gallery`, wenn die Seite ueber einen lokalen oder produktiven Webserver mit Verzeichnisanzeige ausgeliefert wird.
+- Die Galerie liest neue Bilder automatisch aus `assets/images/gallery_kaida` oder `assets/images/gallery_tori`, je nach gewaehltem Charakter, wenn die Seite ueber einen lokalen oder produktiven Webserver mit Verzeichnisanzeige ausgeliefert wird.
 
 ## Lokale Nutzung
 
@@ -32,6 +37,6 @@ Die Galerie sollte nicht direkt per `file:///...` geoeffnet werden, weil Browser
 
 ## Wartungshinweise
 
-- Wenn neue Kapitel hinzukommen, brauchen `data-target`, `id` und optional `data-visibility` konsistente Werte.
+- Wenn neue Kapitel hinzukommen, sollten sie in `js/main.js` innerhalb von `CHARACTER_CONFIG` gepflegt werden.
 - Falls Audio ersetzt wird, sollte das Format weiterhin als `.ogg` vorliegen oder mit zusaetzlichen Quellen erweitert werden.
 - Externe Schriftarten werden derzeit ueber Google Fonts geladen; ohne Netzwerk greift die lokale Serif-Fallback-Kette.

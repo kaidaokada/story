@@ -1,4 +1,133 @@
+const CHARACTER_CONFIG = {
+  kaida: {
+    title: "Kaida Okada",
+    eyebrow: "\u8A18\u61B6\u3068\u5F71\u306E\u7269\u8A9E",
+    subtitle: "Eine Geschichte zwischen Erinnerung, Verlust und dem, was im Schatten ueberlebt.",
+    audioLabel: "Mukon no Hana",
+    audioSource: "assets/audio/kaida.ogg",
+    galleryDirectory: "assets/images/gallery_kaida/",
+    galleryTitle: "Blicke auf Kaida",
+    galleryCopy: "Ein eigener Bereich jenseits der Kapitel. Neue Bilder aus dem Kaida-Ordner erscheinen hier automatisch.",
+    sections: [
+      {
+        id: "prolog",
+        nav: "Prolog",
+        title: "Prolog",
+        background: "assets/images/backgrounds/Kaida/background_kaida.png",
+        paragraphs: [
+          "Der Wind traegt Erinnerungen, die laengst haetten vergessen sein sollen. Nicht laut, nicht klar, sondern leise, wie ein Echo aus einer Zeit, die niemand mehr greifen kann. Zwischen Schatten und Stille existiert etwas, das sich nicht vollstaendig zeigen will. Eine Praesenz, die spuerbar ist, aber nie ganz sichtbar wird.",
+          "Ein Name kehrt dabei immer wieder zurueck: Kaida. Fuer manche ist sie nichts weiter als eine gewoehnliche Frau, fuer andere etwas, das sich nicht in einfache Worte fassen laesst. Je laenger man hinsieht, desto mehr beginnt das Bild zu verschwimmen, als wuerde sich die Wahrheit selbst entziehen.",
+          "Und vielleicht ist genau das der Moment, in dem man begreift, dass Kaida nicht das ist, was man sieht, sondern das, was sich dahinter verbirgt."
+        ]
+      },
+      {
+        id: "second",
+        nav: "Die Sushimeisterin",
+        title: "Kaida - Die Sushimeisterin",
+        background: "assets/images/backgrounds/Kaida/background_kaida.png",
+        paragraphs: [
+          "Im Futomaki ist Kaida eine feste Konstante. Eine Praesenz, die man nicht uebersehen kann, nicht weil sie laut ist, sondern weil sie den Raum erfuellt. Ihr Lachen ist warm, ehrlich und frei von jeder Zurueckhaltung. Es nimmt Schwere aus Gespraechen und laesst selbst schwierige Tage fuer einen Moment leichter wirken.",
+          "Sie spricht, wie sie denkt: direkt, ungefiltert und ohne jede Form von taktischem Kalkuel. Fuer viele wirkt sie dadurch fast einfach, als haette sie nie gelernt, Dinge kompliziert zu machen oder sich hinter einer Fassade zu verstecken. Doch genau in dieser Offenheit liegt eine Form von Staerke, die man erst erkennt, wenn man genauer hinsieht.",
+          "Denn sobald es um die Personen geht, die ihr nahestehen, veraendert sich etwas. Ihre Haltung wird fester, ihr Blick klarer. Ihre Angestellten sind fuer sie mehr als nur Teil eines Geschaefts, sie sind Verantwortung, vielleicht sogar Familie. Und wer zu ihr gehoert, wird beschuetzt. Ohne Zoegern, ohne Diskussion, ohne einen zweiten Gedanken.",
+          "Fuer Aussenstehende bleibt sie die Frau hinter dem Tresen, die Sushi macht, lacht und lebt. Doch wer genauer hinsieht, erkennt, dass diese Einfachheit kein Zufall ist. Sie ist gewaehlt."
+        ]
+      },
+      {
+        id: "third",
+        nav: "Der Ninja",
+        title: "Kaida - Der Ninja",
+        background: "assets/images/backgrounds/Kaida/background_kaida.png",
+        paragraphs: [
+          "Was niemand sieht, ist das, was aus Kaida gemacht wurde. Sie wurde nicht geformt, um zu leben, sondern um zu funktionieren. Jeder Schritt, jede Bewegung, jeder Gedanke wurde auf ein Ziel reduziert: Effizienz.",
+          "Ihr Name innerhalb des Clans lautete Mukon no Hana, die seelenlose Bluete. Ein Titel ohne Waerme, ohne Identitaet, nur ein Zeichen dafuer, dass nichts Menschliches mehr uebrig war. Gefuehle wurden nicht unterdrueckt, sie wurden entfernt. Systematisch, gruendlich und ohne Rest.",
+          "Was blieb, war Klarheit. Eine kalte, praezise Form von Existenz. Kaida fuehrte Befehle aus, ohne zu zoegern, ohne zu hinterfragen und ohne dabei etwas zu empfinden. Genau das machte sie so gefaehrlich.",
+          "Bis zu dem Moment, der niemals haette passieren duerfen. Kaida lernte, was Liebe ist. Nicht ploetzlich und nicht laut, sondern leise und dann unumkehrbar. Etwas in ihr begann zu leben, das laengst verloren geglaubt war.",
+          "Mit diesem Gefuehl kam ein Riss. Ein Bruch zwischen dem, was sie war, und dem, was sie sein wollte. Sie entschied sich gegen ihre Bestimmung und fuer ein Leben, das ihr nie zugedacht war.",
+          "Und sie verlor alles. Ihre Frau. Ihre Tochter.",
+          "Seit diesem Tag laesst Kaida niemanden mehr wirklich nah an sich heran. Nicht aus Angst, sondern aus Ueberzeugung. Denn in ihren Augen ist sie selbst nichts, das Sicherheit geben kann, sondern etwas, das zerstoert."
+        ]
+      },
+      {
+        id: "fourth",
+        nav: "Das Kind?",
+        title: "Kaida - Das Kind?",
+        background: "assets/images/backgrounds/Kaida/background_kaida.png",
+        paragraphs: [
+          "Ueber ihre Kindheit spricht Kaida nicht. Es ist kein Zoegern und kein Ausweichen, sondern eine bewusste Entscheidung. Sie weiss genau, woher sie kommt, kennt ihre Urspruenge bis ins Detail, doch dieser Teil ihrer Geschichte bleibt verschlossen.",
+          "Vielleicht, weil er Antworten liefern wuerde, die niemand hoeren will. Vielleicht, weil er ein Bild zeichnen wuerde, das nicht zu dem passt, was man heute sieht. Oder vielleicht, weil genau dort der Punkt liegt, an dem Kaida selbst aufgehoert hat, zurueckzublicken."
+        ]
+      }
+    ]
+  },
+  tori: {
+    title: "Torinai Nihal",
+    eyebrow: "Mondwaechterin",
+    subtitle: "Mondwaechterin",
+    audioLabel: "Torinai Nihal",
+    audioSource: "assets/audio/tori.ogg",
+    galleryDirectory: "assets/images/gallery_tori/",
+    galleryTitle: "Blicke auf Tori",
+    galleryCopy: "Ein eigener Bereich abseits der Kapitel. Neue Bilder aus dem Tori-Ordner erscheinen hier automatisch.",
+    sections: [
+      {
+        id: "prolog",
+        nav: "Prolog",
+        title: "Prolog",
+        background: "assets/images/backgrounds/Tori/background_tori_b.png",
+        paragraphs: [
+          "Diese Geschichte handelt von einer Heimatlosen, die ihren Hafen gefunden hat. Sie erinnert daran, dass selbst die aussichtslosesten Wege nicht im Nichts enden muessen, sondern in etwas Ganzem, etwas Erfuellendem muenden koennen.",
+          "Was Tori einst genommen wurde, schien unwiederbringlich verloren: Herkunft, Zugehoerigkeit, der Klang eines wahren Namens. Und doch fuehrte ausgerechnet die Leere sie an einen Punkt, an dem all das in anderer Form zu ihr zurueckkehrte.",
+          "Am Ende steht keine makellose Heldin, sondern eine Frau, die trotz Verlust, Gewalt und Einsamkeit genau das wiedergefunden hat, was man ihr geraubt hatte: Wurzeln, Familie und einen Ort, an dem sie bleiben darf."
+        ]
+      },
+      {
+        id: "second",
+        nav: "Torinai - Die Waechterin",
+        title: "Torinai - Die Waechterin",
+        background: "assets/images/backgrounds/Tori/background_tori_w.png",
+        paragraphs: [
+          "Auch wenn viele Tori nicht auf diese Weise kennen, traegt sie ein Erbe in sich, dessen volle Tragweite nicht einmal ihr selbst immer vollkommen bewusst ist. In ihr lebt die Linie des Clans Nihal weiter, und mit ihr ein Dienst, der weit ueber gewoehnliche Pflichterfuellung hinausgeht.",
+          "Tori dient der Gottheit ihrer Familie mit Hingabe und Leidenschaft. Was fuer Aussenstehende wie blinder Gehorsam wirken koennte, ist fuer sie vielmehr ein Einklang aus Bestimmung und Begabung. Gerade im Dienst an diesem Wesen darf sie das sein, worin sie am staerksten ist: entschlossen, scharf, unerschuetterlich.",
+          "Diese Bindung ist fuer Tori absolut, weil ihre Gottheit ihr nicht nur Aufgaben gab, sondern ihr die Geschichte ihres Clans oeffnete. Wo einst Leere war, fanden sich ploetzlich Wurzeln. Wo nur Tori geblieben war, stand auf einmal wieder ein voller Name: Torinai Nihal."
+        ]
+      },
+      {
+        id: "third",
+        nav: "Tori - Die Soeldnerin",
+        title: "Tori - Die Soeldnerin",
+        background: "assets/images/backgrounds/Tori/background_tori_b.png",
+        paragraphs: [
+          "Toris Erwachsenenleben war lange von der Arbeit als Soeldnerin bestimmt. Sie reiste weit, sah mehr von der Welt, als sie je fuer moeglich gehalten haette, und lernte an unzaehligen Orten, wie teuer Sicherheit oft erkauft wird.",
+          "Auf diesen Wegen begegnete sie Liebe und Verlust, aber auch dem unbedingten Wunsch, jemanden wirklich schuetzen zu wollen. Dieser Wunsch veraenderte sie tiefer als jede Schlacht. Er gab ihrem Leben Richtung, Verantwortung und einen Grund, ueber sich selbst hinauszuwachsen.",
+          "Von der krawallsuechtigen Jugendlichen zur Frau mit Disziplin, Selbstwertgefuehl und einem festen Gefuehl fuer Verantwortung war es ein sehr weiter Weg. Gerade deshalb wirkt Tori heute nicht wie jemand, dem Reife einfach zufiel, sondern wie jemand, der jeden einzelnen Schritt dorthin teuer bezahlen musste."
+        ]
+      },
+      {
+        id: "fourth",
+        nav: "Ein Fass voll Einsamkeit",
+        title: "Ein Fass voll Einsamkeit",
+        background: "assets/images/backgrounds/Tori/background_tori_child.png",
+        paragraphs: [
+          "Tori verlor frueh alles: Familie, Clan und Identitaet. Als sie eines Morgens in einem Fass im Hafen von Limsa Lominsa erwachte, war von ihrer Vergangenheit kaum mehr uebrig als ein einzelner Name. Tori. Nur Tori.",
+          "Ihre Kindheit war von Verwirrung, Ueberleben und salziger Kaelte gepraegt. Zwischen Seeleuten, morschem Holz und dem Geruch nach Meer stahl sie sich von Tag zu Tag, schlief in ihrem Fass und hielt sich an dem fest, was notduerftig wie ein Zuhause wirkte.",
+          "Wahrscheinlich waere sie dort irgendwann still zugrunde gegangen, wenn nicht eines Tages eine andere kleine Miqo'te auf sie aufmerksam geworden waere. Aus einem neugierigen Blick in Tori's Fass entstand zuerst Freundschaft, dann Loyalitaet und schliesslich Familie.",
+          "Zum ersten Mal lernte Tori, wie es sich anfuehlt, nicht jeden Tag ums nackte Ueberleben kaempfen zu muessen. Sie wurde adoptiert, Tessia wurde ihre Schwester, und aus einem Kind ohne Herkunft wurde jemand, der bedingungslose Liebe nicht nur ertraeumen, sondern wirklich erfahren durfte."
+        ]
+      }
+    ]
+  }
+};
+
+const AUDIO_VOLUME_KEY = "story-audio-volume";
+const AUDIO_CONSENT_KEY = "story-audio-consent";
+const GALLERY_FILE_PATTERN = /\.(avif|gif|jpe?g|png|webp)$/i;
+
+const body = document.body;
+const siteShell = document.getElementById("siteShell");
+const selectionScreen = document.getElementById("selectionScreen");
+const selectionButtons = Array.from(document.querySelectorAll("[data-character-choice]"));
 const audio = document.getElementById("bgm");
+const audioSource = document.getElementById("bgmSource");
 const toggle = document.getElementById("audioToggle");
 const slider = document.getElementById("volumeSlider");
 const consent = document.getElementById("audioConsent");
@@ -7,7 +136,10 @@ const declineBtn = document.getElementById("declineAudio");
 const legal = document.getElementById("legalOverlay");
 const openLegalBtn = document.getElementById("openLegal");
 const closeLegalBtn = document.getElementById("closeLegal");
+const openSelectionBtn = document.getElementById("openSelection");
 const galleryGrid = document.getElementById("galleryGrid");
+const galleryTitle = document.getElementById("galleryTitle");
+const galleryCopy = document.getElementById("galleryCopy");
 const galleryLightbox = document.getElementById("galleryLightbox");
 const galleryLightboxImage = document.getElementById("galleryLightboxImage");
 const galleryLightboxCaption = document.getElementById("galleryLightboxCaption");
@@ -16,70 +148,22 @@ const items = Array.from(document.querySelectorAll(".menu-item"));
 const contents = Array.from(document.querySelectorAll(".content"));
 const contentBox = document.querySelector(".content-box");
 const audioStatus = document.getElementById("audioStatus");
-
-const AUDIO_VOLUME_KEY = "kaida-volume";
-const AUDIO_CONSENT_KEY = "kaida-audio-consent";
-const DEFAULT_SECTION_ID = "prolog";
-const GALLERY_DIRECTORY = "assets/images/gallery/";
-const GALLERY_FILE_PATTERN = /\.(avif|gif|jpe?g|png|webp)$/i;
+const titleElement = document.getElementById("characterTitle");
+const eyebrowElement = document.getElementById("characterEyebrow");
+const subtitleElement = document.getElementById("characterSubtitle");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let activeDialog = null;
 let lastFocusedElement = null;
+let currentCharacterKey = null;
+let currentSections = [];
+let currentAudioLabel = "Musik";
 
 function updateToggleLabel() {
   const isPlaying = !audio.paused;
-  toggle.textContent = isPlaying ? "\u23F8 Mukon no Hana" : "\u25B6 Mukon no Hana";
+  toggle.textContent = isPlaying ? `\u23F8 ${currentAudioLabel}` : `\u25B6 ${currentAudioLabel}`;
   toggle.setAttribute("aria-pressed", String(isPlaying));
   audioStatus.textContent = isPlaying ? "Musik spielt." : "Musik ist pausiert.";
-}
-
-function getSectionById(sectionId) {
-  return contents.find((content) => content.id === sectionId) || contents[0];
-}
-
-function syncHash(sectionId, replace = false) {
-  const nextHash = `#${sectionId}`;
-
-  if (window.location.hash === nextHash) {
-    return;
-  }
-
-  if (replace) {
-    window.history.replaceState(null, "", nextHash);
-    return;
-  }
-
-  window.history.pushState(null, "", nextHash);
-}
-
-function setActiveSection(targetId, visibility, options = {}) {
-  const section = getSectionById(targetId);
-  const resolvedId = section.id;
-  const resolvedVisibility = visibility || items.find((item) => item.dataset.target === resolvedId)?.dataset.visibility || "0.2";
-
-  items.forEach((item) => {
-    const isActive = item.dataset.target === resolvedId;
-    item.classList.toggle("active", isActive);
-    item.setAttribute("aria-pressed", String(isActive));
-  });
-
-  contents.forEach((content) => {
-    const isActive = content.id === resolvedId;
-    content.classList.toggle("active", isActive);
-    content.hidden = !isActive;
-  });
-
-  document.documentElement.style.setProperty("--visibility", resolvedVisibility);
-
-  if (options.updateHash !== false) {
-    syncHash(resolvedId, options.replaceHash === true);
-  }
-
-  if (options.focusContent === true) {
-    contentBox.tabIndex = -1;
-    contentBox.focus();
-  }
 }
 
 function getFocusableElements(container) {
@@ -91,7 +175,7 @@ function getFocusableElements(container) {
 }
 
 function setModalState(isOpen) {
-  document.body.classList.toggle("modal-open", isOpen);
+  body.classList.toggle("modal-open", isOpen);
 }
 
 function openDialog(dialog, trigger) {
@@ -139,11 +223,25 @@ function closeLegal() {
   closeDialog(legal);
 }
 
+function openSelectionScreen() {
+  audio.pause();
+  updateToggleLabel();
+  body.dataset.character = "none";
+  siteShell.classList.add("hidden");
+  selectionScreen.classList.remove("hidden");
+  selectionButtons[0]?.focus();
+}
+
+function closeSelectionScreen() {
+  selectionScreen.classList.add("hidden");
+  siteShell.classList.remove("hidden");
+}
+
 function saveVolume() {
   try {
     localStorage.setItem(AUDIO_VOLUME_KEY, slider.value);
   } catch (_error) {
-    // Ignore storage issues so the page keeps working in restricted contexts.
+    // Ignore storage issues.
   }
 }
 
@@ -151,38 +249,30 @@ function saveConsent(value) {
   try {
     localStorage.setItem(AUDIO_CONSENT_KEY, value);
   } catch (_error) {
-    // Ignore storage issues so consent still works for this session.
+    // Ignore storage issues.
   }
 }
 
-function loadPreferences() {
-  let savedVolume = null;
-  let savedConsent = null;
-
+function getStoredConsent() {
   try {
-    savedVolume = localStorage.getItem(AUDIO_VOLUME_KEY);
-    savedConsent = localStorage.getItem(AUDIO_CONSENT_KEY);
+    return localStorage.getItem(AUDIO_CONSENT_KEY);
   } catch (_error) {
-    savedVolume = null;
-    savedConsent = null;
+    return null;
   }
+}
 
-  if (savedVolume !== null) {
-    slider.value = savedVolume;
+function loadVolume() {
+  try {
+    const savedVolume = localStorage.getItem(AUDIO_VOLUME_KEY);
+
+    if (savedVolume !== null) {
+      slider.value = savedVolume;
+    }
+  } catch (_error) {
+    // Ignore storage issues.
   }
 
   audio.volume = Number.parseFloat(slider.value) || 0.75;
-
-  if (savedConsent === "accepted") {
-    consent.classList.add("hidden");
-    consent.setAttribute("aria-hidden", "true");
-    playAudio();
-  } else if (savedConsent === "declined") {
-    consent.classList.add("hidden");
-    consent.setAttribute("aria-hidden", "true");
-  } else {
-    openDialog(consent, toggle);
-  }
 }
 
 async function playAudio() {
@@ -195,6 +285,24 @@ async function playAudio() {
 
 function closeConsent() {
   closeDialog(consent);
+}
+
+function maybeAskForAudio(trigger) {
+  const savedConsent = getStoredConsent();
+
+  if (savedConsent === "accepted") {
+    playAudio();
+    updateToggleLabel();
+    return;
+  }
+
+  if (savedConsent === "declined") {
+    audio.pause();
+    updateToggleLabel();
+    return;
+  }
+
+  openDialog(consent, trigger);
 }
 
 function closeGalleryLightbox() {
@@ -222,8 +330,6 @@ function createGalleryCard(imagePath) {
   button.type = "button";
   button.className = "gallery-card";
   button.setAttribute("aria-label", `${label} vergroessern`);
-  button.dataset.imagePath = imagePath;
-  button.dataset.imageLabel = label;
 
   image.src = imagePath;
   image.alt = label;
@@ -265,9 +371,9 @@ function renderGallery(imagePaths) {
   });
 }
 
-async function loadGallery() {
+async function loadGallery(directory) {
   try {
-    const response = await fetch(GALLERY_DIRECTORY, { cache: "no-store" });
+    const response = await fetch(directory, { cache: "no-store" });
 
     if (!response.ok) {
       throw new Error(`Gallery request failed with status ${response.status}`);
@@ -275,17 +381,141 @@ async function loadGallery() {
 
     const markup = await response.text();
     const parser = new DOMParser();
-    const documentFragment = parser.parseFromString(markup, "text/html");
-    const imagePaths = Array.from(documentFragment.querySelectorAll("a[href]"))
+    const parsedDocument = parser.parseFromString(markup, "text/html");
+    const imagePaths = Array.from(parsedDocument.querySelectorAll("a[href]"))
       .map((link) => link.getAttribute("href") || "")
       .filter((href) => GALLERY_FILE_PATTERN.test(href))
-      .map((href) => new URL(href, `${window.location.origin}/${GALLERY_DIRECTORY}`).pathname.replace(/^\//, ""))
+      .map((href) => new URL(href, `${window.location.origin}/${directory}`).pathname.replace(/^\//, ""))
       .sort((left, right) => left.localeCompare(right, undefined, { sensitivity: "base" }));
 
     renderGallery(imagePaths);
   } catch (_error) {
-    galleryGrid.innerHTML = '<p class="gallery-empty">Die Galerie konnte nicht automatisch aus dem Ordner gelesen werden. Bitte nutze einen lokalen Server mit aktivierter Verzeichnisanzeige, damit neue Bilder automatisch erscheinen.</p>';
+    galleryGrid.innerHTML = '<p class="gallery-empty">Die Galerie konnte nicht automatisch aus dem Ordner gelesen werden. Bitte nutze einen Webserver mit aktivierter Verzeichnisanzeige, damit neue Bilder automatisch erscheinen.</p>';
   }
+}
+
+function setPageBackground(imagePath) {
+  document.documentElement.style.setProperty("--page-background", `url('${imagePath}')`);
+}
+
+function getSectionById(sectionId) {
+  return currentSections.find((section) => section.id === sectionId) || currentSections[0];
+}
+
+function syncHash(sectionId, replace = false) {
+  const nextHash = `#${sectionId}`;
+
+  if (window.location.hash === nextHash) {
+    return;
+  }
+
+  if (replace) {
+    window.history.replaceState(null, "", nextHash);
+    return;
+  }
+
+  window.history.pushState(null, "", nextHash);
+}
+
+function setActiveSection(targetId, options = {}) {
+  const section = getSectionById(targetId);
+
+  if (!section) {
+    return;
+  }
+
+  items.forEach((item) => {
+    const isActive = item.dataset.target === section.id;
+    item.classList.toggle("active", isActive);
+    item.setAttribute("aria-pressed", String(isActive));
+  });
+
+  contents.forEach((content) => {
+    const isActive = content.id === section.id;
+    content.classList.toggle("active", isActive);
+    content.hidden = !isActive;
+  });
+
+  setPageBackground(section.background);
+  document.documentElement.style.setProperty("--visibility", options.visibility || "0.2");
+
+  if (options.updateHash !== false) {
+    syncHash(section.id, options.replaceHash === true);
+  }
+
+  if (options.focusContent === true) {
+    contentBox.tabIndex = -1;
+    contentBox.focus();
+  }
+}
+
+function populateSections(character) {
+  currentSections = character.sections;
+
+  items.forEach((item, index) => {
+    const section = character.sections[index];
+    item.dataset.target = section.id;
+    item.setAttribute("aria-controls", section.id);
+    item.textContent = section.nav;
+  });
+
+  contents.forEach((content, index) => {
+    const section = character.sections[index];
+    const heading = content.querySelector("h2");
+    const bodyContainer = content.querySelector(".content-body");
+
+    content.id = section.id;
+    heading.textContent = section.title;
+    bodyContainer.replaceChildren(
+      ...section.paragraphs.map((paragraph) => {
+        const element = document.createElement("p");
+        element.textContent = paragraph;
+        return element;
+      })
+    );
+  });
+}
+
+function applyCharacter(characterKey, trigger) {
+  const character = CHARACTER_CONFIG[characterKey];
+
+  currentCharacterKey = characterKey;
+  currentAudioLabel = character.audioLabel;
+  body.dataset.character = characterKey;
+
+  eyebrowElement.textContent = character.eyebrow;
+  titleElement.textContent = character.title;
+  subtitleElement.textContent = character.subtitle;
+  galleryTitle.textContent = character.galleryTitle;
+  galleryCopy.textContent = character.galleryCopy;
+
+  populateSections(character);
+
+  audio.pause();
+  audioSource.src = character.audioSource;
+  audio.load();
+  updateToggleLabel();
+
+  closeSelectionScreen();
+  handleHashNavigation();
+  loadGallery(character.galleryDirectory);
+  maybeAskForAudio(trigger);
+}
+
+function handleHashNavigation() {
+  if (!currentCharacterKey) {
+    return;
+  }
+
+  const targetId = window.location.hash.replace("#", "");
+  const matchingSection = currentSections.find((section) => section.id === targetId);
+
+  if (matchingSection) {
+    setActiveSection(targetId, { updateHash: false });
+    return;
+  }
+
+  setActiveSection("prolog", { replaceHash: true });
 }
 
 function trapFocus(event) {
@@ -315,18 +545,6 @@ function trapFocus(event) {
   }
 }
 
-function handleHashNavigation() {
-  const targetId = window.location.hash.replace("#", "");
-  const matchingItem = items.find((item) => item.dataset.target === targetId);
-
-  if (matchingItem) {
-    setActiveSection(targetId, matchingItem.dataset.visibility, { updateHash: false });
-    return;
-  }
-
-  setActiveSection(DEFAULT_SECTION_ID, "0.2", { replaceHash: true });
-}
-
 slider.addEventListener("input", () => {
   audio.volume = Number.parseFloat(slider.value) || 0;
   saveVolume();
@@ -344,7 +562,13 @@ toggle.addEventListener("click", async () => {
 
 items.forEach((item) => {
   item.addEventListener("click", () => {
-    setActiveSection(item.dataset.target, item.dataset.visibility);
+    setActiveSection(item.dataset.target);
+  });
+});
+
+selectionButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    applyCharacter(button.dataset.characterChoice, button);
   });
 });
 
@@ -360,6 +584,7 @@ if (!prefersReducedMotion.matches) {
 
 openLegalBtn.addEventListener("click", openLegal);
 closeLegalBtn.addEventListener("click", closeLegal);
+openSelectionBtn.addEventListener("click", openSelectionScreen);
 
 legal.addEventListener("click", (event) => {
   if (event.target === legal) {
@@ -415,7 +640,6 @@ galleryLightbox.addEventListener("click", (event) => {
 
 closeGalleryLightboxBtn.addEventListener("click", closeGalleryLightbox);
 
-loadPreferences();
-handleHashNavigation();
+loadVolume();
 updateToggleLabel();
-loadGallery();
+openSelectionScreen();
