@@ -35,7 +35,7 @@ const CHARACTER_CONFIG = {
       },
       {
         id: "third",
-        nav: "Der Ninja",
+        nav: "Die Kunoichi",
         title: "Kaida - Kunoichi",
         background: "assets/images/backgrounds/Kaida/background_kaida.png",
         paragraphs: [
