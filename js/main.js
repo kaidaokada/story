@@ -1,82 +1,159 @@
 const audio = document.getElementById("bgm");
 const toggle = document.getElementById("audioToggle");
 const slider = document.getElementById("volumeSlider");
-
 const consent = document.getElementById("audioConsent");
 const acceptBtn = document.getElementById("acceptAudio");
 const declineBtn = document.getElementById("declineAudio");
-
-// Startlautstärke
-audio.volume = 0.75;
-slider.oninput = () => {
-  audio.volume = parseFloat(slider.value);
-};
-
-toggle.onclick = () => {
-  if (audio.paused) {
-    audio.play();
-    toggle.textContent = "⏸ Sound";
-  } else {
-    audio.pause();
-    toggle.textContent = "▶ Sound";
-  }
-};
-
+const legal = document.getElementById("legalOverlay");
+const openLegalBtn = document.getElementById("openLegal");
+const closeLegalBtn = document.getElementById("closeLegal");
 const items = document.querySelectorAll(".menu-item");
 const contents = document.querySelectorAll(".content");
 
-items.forEach(item=>{
-  item.onclick=()=>{
-    items.forEach(i=>i.classList.remove("active"));
-    item.classList.add("active");
+const AUDIO_VOLUME_KEY = "kaida-volume";
+const AUDIO_CONSENT_KEY = "kaida-audio-consent";
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    const target=item.dataset.target;
-    const visibility=item.dataset.visibility;
+function updateToggleLabel() {
+  const isPlaying = !audio.paused;
+  toggle.textContent = isPlaying ? "\u23F8 Mukon no Hana" : "\u25B6 Mukon no Hana";
+  toggle.setAttribute("aria-pressed", String(isPlaying));
+}
 
-    document.documentElement.style.setProperty("--visibility",visibility);
+function setActiveSection(targetId, visibility) {
+  items.forEach((item) => {
+    const isActive = item.dataset.target === targetId;
+    item.classList.toggle("active", isActive);
+    item.setAttribute("aria-pressed", String(isActive));
+  });
 
-    contents.forEach(c=>{
-      c.classList.remove("active");
-      if(c.id===target){
-        c.classList.add("active");
-      }
-    });
-  };
-});
+  contents.forEach((content) => {
+    const isActive = content.id === targetId;
+    content.classList.toggle("active", isActive);
+    content.hidden = !isActive;
+  });
 
-document.addEventListener("mousemove",(e)=>{
-  const x=(e.clientX/window.innerWidth-0.5)*40;
-  const y=(e.clientY/window.innerHeight-0.5)*40;
+  document.documentElement.style.setProperty("--visibility", visibility);
+}
 
-  document.documentElement.style.setProperty("--mouseX",`${x}px`);
-  document.documentElement.style.setProperty("--mouseY",`${y}px`);
-});
-
-/* LEGAL */
-const legal = document.getElementById("legalOverlay");
-
-document.getElementById("openLegal").onclick = () => {
+function openLegal() {
   legal.classList.remove("hidden");
-};
+}
 
-document.getElementById("closeLegal").onclick = () => {
+function closeLegal() {
   legal.classList.add("hidden");
-};
+}
 
-legal.onclick = (e)=>{
-  if(e.target===legal){
-    legal.classList.add("hidden");
+function saveVolume() {
+  try {
+    localStorage.setItem(AUDIO_VOLUME_KEY, slider.value);
+  } catch (_error) {
+    // Ignore storage issues so the page keeps working in restricted contexts.
   }
-};
+}
 
+function loadPreferences() {
+  let savedVolume = null;
+  let savedConsent = null;
 
-acceptBtn.onclick = () => {
+  try {
+    savedVolume = localStorage.getItem(AUDIO_VOLUME_KEY);
+    savedConsent = localStorage.getItem(AUDIO_CONSENT_KEY);
+  } catch (_error) {
+    savedVolume = null;
+    savedConsent = null;
+  }
+
+  if (savedVolume !== null) {
+    slider.value = savedVolume;
+  }
+
   audio.volume = parseFloat(slider.value);
-  audio.play();
-  toggle.textContent = "⏸ Sound";
-  consent.style.display = "none";
-};
 
-declineBtn.onclick = () => {
-  consent.style.display = "none";
-};
+  if (savedConsent === "accepted" || savedConsent === "declined") {
+    consent.classList.add("hidden");
+  }
+}
+
+async function playAudio() {
+  try {
+    await audio.play();
+  } catch (_error) {
+    updateToggleLabel();
+  }
+}
+
+slider.addEventListener("input", () => {
+  audio.volume = parseFloat(slider.value);
+  saveVolume();
+});
+
+toggle.addEventListener("click", async () => {
+  if (audio.paused) {
+    await playAudio();
+  } else {
+    audio.pause();
+  }
+
+  updateToggleLabel();
+});
+
+items.forEach((item) => {
+  item.addEventListener("click", () => {
+    setActiveSection(item.dataset.target, item.dataset.visibility);
+  });
+});
+
+if (!prefersReducedMotion.matches) {
+  document.addEventListener("mousemove", (event) => {
+    const x = (event.clientX / window.innerWidth - 0.5) * 40;
+    const y = (event.clientY / window.innerHeight - 0.5) * 40;
+
+    document.documentElement.style.setProperty("--mouseX", `${x}px`);
+    document.documentElement.style.setProperty("--mouseY", `${y}px`);
+  });
+}
+
+openLegalBtn.addEventListener("click", openLegal);
+closeLegalBtn.addEventListener("click", closeLegal);
+
+legal.addEventListener("click", (event) => {
+  if (event.target === legal) {
+    closeLegal();
+  }
+});
+
+acceptBtn.addEventListener("click", async () => {
+  try {
+    localStorage.setItem(AUDIO_CONSENT_KEY, "accepted");
+  } catch (_error) {
+    // Ignore storage issues so consent still works for this session.
+  }
+  consent.classList.add("hidden");
+  await playAudio();
+  updateToggleLabel();
+});
+
+declineBtn.addEventListener("click", () => {
+  try {
+    localStorage.setItem(AUDIO_CONSENT_KEY, "declined");
+  } catch (_error) {
+    // Ignore storage issues so consent still works for this session.
+  }
+  consent.classList.add("hidden");
+  audio.pause();
+  updateToggleLabel();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeLegal();
+  }
+});
+
+audio.addEventListener("play", updateToggleLabel);
+audio.addEventListener("pause", updateToggleLabel);
+
+loadPreferences();
+setActiveSection("prolog", "0.2");
+updateToggleLabel();

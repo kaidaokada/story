@@ -2,98 +2,97 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Kaida - Story</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kaida: eine atmosphaerische Charakter- und Story-Seite zwischen Erinnerung, Schatten und Stille.">
+  <title>Kaida - Story</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="particles" aria-hidden="true"></div>
 
-<div class="particles"></div>
+  <header class="main-header">
+    <p class="eyebrow">&#x8A18;&#x61B6;&#x3068;&#x5F71;&#x306E;&#x7269;&#x8A9E;</p>
+    <h1>KAIDA</h1>
+    <p class="subtitle">Eine Geschichte zwischen Erinnerung, Verlust und dem, was im Schatten ueberlebt.</p>
+  </header>
 
-<header class="main-header">
-  <h1>KAIDA</h1>
-  <p class="subtitle">記憶と影の物語</p>
-</header>
+  <main class="layout">
+    <aside class="menu" aria-label="Kapitel">
+      <button class="menu-item active" type="button" data-target="prolog" data-visibility="0.2" aria-controls="prolog" aria-pressed="true">Prolog</button>
+      <button class="menu-item" type="button" data-target="sushi" data-visibility="0.45" aria-controls="sushi" aria-pressed="false">Die Sushimeisterin</button>
+      <button class="menu-item" type="button" data-target="ninja" data-visibility="0.8" aria-controls="ninja" aria-pressed="false">Der Ninja</button>
+      <button class="menu-item" type="button" data-target="child" data-visibility="1" aria-controls="child" aria-pressed="false">Das Kind?</button>
+    </aside>
 
-<main class="layout">
+    <section class="content-box" aria-live="polite">
+      <article class="content active" id="prolog">
+        <h2>Prolog</h2>
+        <p>Der Wind traegt Erinnerungen, die laengst haetten vergessen sein sollen. Nicht laut, nicht klar, sondern leise, wie ein Echo aus einer Zeit, die niemand mehr greifen kann. Zwischen Schatten und Stille existiert etwas, das sich nicht vollstaendig zeigen will. Eine Praesenz, die spuerbar ist, aber nie ganz sichtbar wird.</p>
+        <p>Ein Name kehrt dabei immer wieder zurueck: Kaida. Fuer manche ist sie nichts weiter als eine gewoehnliche Frau, fuer andere etwas, das sich nicht in einfache Worte fassen laesst. Je laenger man hinsieht, desto mehr beginnt das Bild zu verschwimmen, als wuerde sich die Wahrheit selbst entziehen.</p>
+        <p>Und vielleicht ist genau das der Moment, in dem man begreift, dass Kaida nicht das ist, was man sieht, sondern das, was sich dahinter verbirgt.</p>
+      </article>
 
-  <aside class="menu">
-    <div class="menu-item active" data-target="prolog" data-visibility="0.2">Prolog</div>
-    <div class="menu-item" data-target="sushi" data-visibility="0.45">Die Sushimeisterin</div>
-    <div class="menu-item" data-target="ninja" data-visibility="0.8">Der Ninja</div>
-    <div class="menu-item" data-target="child" data-visibility="1">Das Kind?</div>
-  </aside>
+      <article class="content" id="sushi" hidden>
+        <h2>Kaida - Die Sushimeisterin</h2>
+        <p>Im Futomaki ist Kaida eine feste Konstante. Eine Praesenz, die man nicht uebersehen kann, nicht weil sie laut ist, sondern weil sie den Raum erfuellt. Ihr Lachen ist warm, ehrlich und frei von jeder Zurueckhaltung. Es nimmt Schwere aus Gespraechen und laesst selbst schwierige Tage fuer einen Moment leichter wirken.</p>
+        <p>Sie spricht, wie sie denkt: direkt, ungefiltert und ohne jede Form von taktischem Kalkuel. Fuer viele wirkt sie dadurch fast einfach, als haette sie nie gelernt, Dinge kompliziert zu machen oder sich hinter einer Fassade zu verstecken. Doch genau in dieser Offenheit liegt eine Form von Staerke, die man erst erkennt, wenn man genauer hinsieht.</p>
+        <p>Denn sobald es um die Personen geht, die ihr nahestehen, veraendert sich etwas. Ihre Haltung wird fester, ihr Blick klarer. Ihre Angestellten sind fuer sie mehr als nur Teil eines Geschaefts, sie sind Verantwortung, vielleicht sogar Familie. Und wer zu ihr gehoert, wird beschuetzt. Ohne Zoegern, ohne Diskussion, ohne einen zweiten Gedanken.</p>
+        <p>Fuer Aussenstehende bleibt sie die Frau hinter dem Tresen, die Sushi macht, lacht und lebt. Doch wer genauer hinsieht, erkennt, dass diese Einfachheit kein Zufall ist. Sie ist gewaehlt.</p>
+      </article>
 
-  <section class="content-box">
+      <article class="content" id="ninja" hidden>
+        <h2>Kaida - Der Ninja</h2>
+        <p>Was niemand sieht, ist das, was aus Kaida gemacht wurde. Sie wurde nicht geformt, um zu leben, sondern um zu funktionieren. Jeder Schritt, jede Bewegung, jeder Gedanke wurde auf ein Ziel reduziert: Effizienz.</p>
+        <p>Ihr Name innerhalb des Clans lautete Mukon no Hana, die seelenlose Bluete. Ein Titel ohne Waerme, ohne Identitaet, nur ein Zeichen dafuer, dass nichts Menschliches mehr uebrig war. Gefuehle wurden nicht unterdrueckt, sie wurden entfernt. Systematisch, gruendlich und ohne Rest.</p>
+        <p>Was blieb, war Klarheit. Eine kalte, praezise Form von Existenz. Kaida fuehrte Befehle aus, ohne zu zoegern, ohne zu hinterfragen und ohne dabei etwas zu empfinden. Genau das machte sie so gefaehrlich.</p>
+        <p>Bis zu dem Moment, der niemals haette passieren duerfen. Kaida lernte, was Liebe ist. Nicht ploetzlich und nicht laut, sondern leise und dann unumkehrbar. Etwas in ihr begann zu leben, das laengst verloren geglaubt war.</p>
+        <p>Mit diesem Gefuehl kam ein Riss. Ein Bruch zwischen dem, was sie war, und dem, was sie sein wollte. Sie entschied sich gegen ihre Bestimmung und fuer ein Leben, das ihr nie zugedacht war.</p>
+        <p>Und sie verlor alles. Ihre Frau. Ihre Tochter.</p>
+        <p>Seit diesem Tag laesst Kaida niemanden mehr wirklich nah an sich heran. Nicht aus Angst, sondern aus Ueberzeugung. Denn in ihren Augen ist sie selbst nichts, das Sicherheit geben kann, sondern etwas, das zerstoert.</p>
+      </article>
 
-    <div class="content active" id="prolog">
-      <h2>Prolog</h2>
-      <p>Der Wind trägt Erinnerungen, die längst hätten vergessen sein sollen. Nicht laut, nicht klar, sondern leise - wie ein Echo aus einer Zeit, die niemand mehr greifen kann. Zwischen Schatten und Stille existiert etwas, das sich nicht vollständig zeigen will. Eine Präsenz, die spürbar ist, aber nie ganz sichtbar wird.</p>
-      <p>Ein Name kehrt dabei immer wieder zurück: Kaida. Für manche ist sie nichts weiter als eine gewöhnliche Frau, für andere etwas, das sich nicht in einfache Worte fassen lässt. Je länger man hinsieht, desto mehr beginnt das Bild zu verschwimmen, als würde sich die Wahrheit selbst entziehen.</p>
-      <p>Und vielleicht ist genau das der Moment, in dem man begreift, dass Kaida nicht das ist, was man sieht - sondern das, was sich dahinter verbirgt.</p>
-    </div>
+      <article class="content" id="child" hidden>
+        <h2>Kaida - Das Kind?</h2>
+        <p>Ueber ihre Kindheit spricht Kaida nicht. Es ist kein Zoegern und kein Ausweichen, sondern eine bewusste Entscheidung. Sie weiss genau, woher sie kommt, kennt ihre Urspruenge bis ins Detail, doch dieser Teil ihrer Geschichte bleibt verschlossen.</p>
+        <p>Vielleicht, weil er Antworten liefern wuerde, die niemand hoeren will. Vielleicht, weil er ein Bild zeichnen wuerde, das nicht zu dem passt, was man heute sieht. Oder vielleicht, weil genau dort der Punkt liegt, an dem Kaida selbst aufgehoert hat, zurueckzublicken.</p>
+      </article>
+    </section>
+  </main>
 
-    <div class="content" id="sushi">
-      <h2>Kaida - Die Sushimeisterin</h2>
-      <p>Im Futomaki ist Kaida eine feste Konstante. Eine Präsenz, die man nicht übersehen kann - nicht, weil sie laut ist, sondern weil sie den Raum erfüllt. Ihr Lachen ist warm, ehrlich und frei von jeder Zurückhaltung. Es nimmt Schwere aus Gesprächen und lässt selbst schwierige Tage für einen Moment leichter wirken.</p>
-      <p>Sie spricht, wie sie denkt: direkt, ungefiltert und ohne jede Form von taktischem Kalkül. Für viele wirkt sie dadurch fast einfach, als hätte sie nie gelernt, Dinge kompliziert zu machen oder sich hinter einer Fassade zu verstecken. Doch genau in dieser Offenheit liegt eine Form von Stärke, die man erst erkennt, wenn man genauer hinsieht.</p>
-      <p>Denn sobald es um die Personen geht, die ihr nahestehen, verändert sich etwas. Ihre Haltung wird fester, ihr Blick klarer. Ihre Angestellten sind für sie mehr als nur Teil eines Geschäfts - sie sind Verantwortung, vielleicht sogar Familie. Und wer zu ihr gehört, wird beschützt. Ohne Zögern, ohne Diskussion, ohne einen zweiten Gedanken.</p>
-      <p>Für Außenstehende bleibt sie die Frau hinter dem Tresen, die Sushi macht, lacht und lebt. Doch wer genauer hinsieht, erkennt, dass diese Einfachheit kein Zufall ist. Sie ist gewählt.</p>
-    </div>
-
-    <div class="content" id="ninja">
-      <h2>Kaida - Der Ninja</h2>
-      <p>Was niemand sieht, ist das, was aus Kaida gemacht wurde. Sie wurde nicht geformt, um zu leben, sondern um zu funktionieren. Jeder Schritt, jede Bewegung, jeder Gedanke wurde auf ein Ziel reduziert: Effizienz.</p>
-      <p>Ihr Name innerhalb des Clans lautete Mukon no Hana - die seelenlose Blüte. Ein Titel ohne Wärme, ohne Identität, nur ein Zeichen dafür, dass nichts Menschliches mehr übrig war. Gefühle wurden nicht unterdrückt, sie wurden entfernt. Systematisch, gründlich und ohne Rest.</p>
-      <p>Was blieb, war Klarheit. Eine kalte, präzise Form von Existenz. Kaida führte Befehle aus, ohne zu zögern, ohne zu hinterfragen und ohne dabei etwas zu empfinden. Genau das machte sie so gefährlich.</p>
-      <p>Bis zu dem Moment, der niemals hätte passieren dürfen. Kaida lernte, was Liebe ist. Nicht plötzlich und nicht laut, sondern leise - und dann unumkehrbar. Etwas in ihr begann zu leben, das längst verloren geglaubt war.</p>
-      <p>Mit diesem Gefühl kam ein Riss. Ein Bruch zwischen dem, was sie war, und dem, was sie sein wollte. Sie entschied sich gegen ihre Bestimmung und für ein Leben, das ihr nie zugedacht war.</p>
-      <p>Und sie verlor alles. Ihre Frau. Ihre Tochter.</p>
-      <p>Seit diesem Tag lässt Kaida niemanden mehr wirklich nah an sich heran. Nicht aus Angst, sondern aus Überzeugung. Denn in ihren Augen ist sie selbst nichts, das Sicherheit geben kann - sondern etwas, das zerstört.</p>
-    </div>
-
-    <div class="content" id="child">
-      <h2>Kaida - Das Kind?</h2>
-      <p>Über ihre Kindheit spricht Kaida nicht. Es ist kein Zögern und kein Ausweichen, sondern eine bewusste Entscheidung. Sie weiß genau, woher sie kommt, kennt ihre Ursprünge bis ins Detail - doch dieser Teil ihrer Geschichte bleibt verschlossen.</p>
-      <p>Vielleicht, weil er Antworten liefern würde, die niemand hören will. Vielleicht, weil er ein Bild zeichnen würde, das nicht zu dem passt, was man heute sieht. Oder vielleicht, weil genau dort der Punkt liegt, an dem Kaida selbst aufgehört hat, zurückzublicken.</p>
-    </div>
-
-  </section>
-
-</main>
-
-<div class="audio-control">
-  <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.75">
-  <button id="audioToggle">▶ Mukon no Hana</button>
-</div>
-
-<audio id="bgm" loop>
-  <source src="assets/audio/kaida.ogg" type="audio/ogg">
-</audio>
-
-<div class="legal-button">
-  <button id="openLegal">Rechtshinweise</button>
-</div>
-
-<div id="legalOverlay" class="legal-overlay hidden">
-  <div class="legal-card">
-    <button class="close-btn" id="closeLegal">✕</button>
-    <h2>Rechtshinweise</h2>
-    <p>Die Inhalte dieser Website, einschließlich Texte, Gestaltung, Audioinhalte und Quellcode, sind urheberrechtlich geschützt.</p>
-    <p>Jegliche Nutzung, Vervielfältigung oder Weiterverbreitung ist ohne ausdrückliche Zustimmung nicht gestattet.</p>
+  <div class="audio-control">
+    <label class="sr-only" for="volumeSlider">Lautstaerke</label>
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.75">
+    <button id="audioToggle" type="button" aria-pressed="false">&#9654; Mukon no Hana</button>
   </div>
-</div>
 
-<div id="audioConsent" class="audio-consent">
-  <div class="audio-consent-box">
-    <p>Hintergrundmusik abspielen?</p>
-    <div class="audio-consent-buttons">
-      <button id="acceptAudio">Ja</button>
-      <button id="declineAudio">Nein</button>
+  <audio id="bgm" loop preload="metadata">
+    <source src="assets/audio/kaida.ogg" type="audio/ogg">
+  </audio>
+
+  <div class="legal-button">
+    <button id="openLegal" type="button" aria-haspopup="dialog" aria-controls="legalOverlay">Rechtshinweise</button>
+  </div>
+
+  <div id="legalOverlay" class="legal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+    <div class="legal-card">
+      <button class="close-btn" id="closeLegal" type="button" aria-label="Rechtshinweise schliessen">&#10005;</button>
+      <h2 id="legalTitle">Rechtshinweise</h2>
+      <p>Die Inhalte dieser Website, einschliesslich Texte, Gestaltung, Audioinhalte und Quellcode, sind urheberrechtlich geschuetzt.</p>
+      <p>Jegliche Nutzung, Vervielfaeltigung oder Weiterverbreitung ist ohne ausdrueckliche Zustimmung nicht gestattet.</p>
     </div>
   </div>
-</div>
-  
-<script src="js/main.js"></script>
+
+  <div id="audioConsent" class="audio-consent" role="dialog" aria-modal="true" aria-labelledby="audioConsentTitle">
+    <div class="audio-consent-box">
+      <h2 id="audioConsentTitle">Hintergrundmusik</h2>
+      <p>Moechtest du die Musik automatisch starten?</p>
+      <div class="audio-consent-buttons">
+        <button id="acceptAudio" type="button">Ja</button>
+        <button id="declineAudio" type="button">Nein</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
