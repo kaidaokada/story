@@ -360,25 +360,6 @@ body[data-character="kaida"] .gallery-section {
   background: linear-gradient(135deg, rgba(12, 9, 12, 0.88), rgba(27, 11, 14, 0.8));
 }
 
-.gallery-header {
-  max-width: 720px;
-  margin-bottom: 24px;
-}
-
-.gallery-kicker {
-  font-size: 0.8rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--muted);
-  opacity: 0.9;
-  margin-bottom: 10px;
-}
-
-.gallery-header h2 {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  margin-bottom: 10px;
-}
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

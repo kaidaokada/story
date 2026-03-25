@@ -6,7 +6,6 @@ const CHARACTER_CONFIG = {
     audioLabel: "Mukon no Hana",
     audioSource: "assets/audio/kaida.ogg",
     galleryDirectory: "assets/images/gallery_kaida/",
-    galleryTitle: "Blicke auf Kaida",
     sections: [
       {
         id: "prolog",
@@ -65,7 +64,6 @@ const CHARACTER_CONFIG = {
     audioLabel: "Torinai Nihal",
     audioSource: "assets/audio/tori.ogg",
     galleryDirectory: "assets/images/gallery_tori/",
-    galleryTitle: "Blicke auf Tori",
     sections: [
       {
         id: "prolog",
@@ -141,7 +139,6 @@ const openSelectionBtn = document.getElementById("openSelection");
 const jumpToGalleryBtn = document.getElementById("jumpToGallery");
 const gallerySection = document.querySelector(".gallery-section");
 const galleryGrid = document.getElementById("galleryGrid");
-const galleryTitle = document.getElementById("galleryTitle");
 const galleryLightbox = document.getElementById("galleryLightbox");
 const galleryLightboxImage = document.getElementById("galleryLightboxImage");
 const galleryLightboxCaption = document.getElementById("galleryLightboxCaption");
@@ -508,7 +505,6 @@ function applyCharacter(characterKey, trigger) {
   eyebrowElement.textContent = character.eyebrow;
   titleElement.textContent = character.title;
   subtitleElement.textContent = character.subtitle;
-  galleryTitle.textContent = character.galleryTitle;
 
   populateSections(character);
 
