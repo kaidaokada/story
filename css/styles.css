@@ -216,3 +216,28 @@ button{
 .hidden{
   display:none !important;
 }
+
+
+.audio-consent{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:10000;
+}
+
+.audio-consent-box{
+  background:#111;
+  padding:25px 30px;
+  border:1px solid rgba(255,255,255,0.2);
+  text-align:center;
+}
+
+.audio-consent-buttons{
+  margin-top:15px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
