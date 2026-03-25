@@ -99,6 +99,7 @@ body[data-character="tori"] {
   min-height: 100vh;
   overflow: hidden;
   isolation: isolate;
+  z-index: 20;
 }
 
 .selection-background,
@@ -136,6 +137,7 @@ body[data-character="tori"] {
   bottom: 12vh;
   width: 1px;
   background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  pointer-events: none;
 }
 
 .selection-panel-tori::after {
@@ -162,6 +164,7 @@ body[data-character="tori"] {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   z-index: 2;
+  pointer-events: auto;
 }
 
 .selection-panel-tori .selection-choice {
