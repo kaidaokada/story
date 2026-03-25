@@ -1,4 +1,4 @@
-const CHARACTER_CONFIG = {
+﻿const CHARACTER_CONFIG = {
   kaida: {
     title: "Kaida Okada",
     eyebrow: "\u8A18\u61B6\u3068\u5F71\u306E\u7269\u8A9E",
@@ -25,7 +25,7 @@ const CHARACTER_CONFIG = {
         id: "second",
         nav: "Die Sushimeisterin",
         title: "Kaida - Die Sushimeisterin",
-        background: "assets/images/backgrounds/Kaida/background_kaida.png",
+        background: "assets/images/backgrounds/Kaida/background_sushi.png",
         paragraphs: [
           "Im Futomaki ist Kaida eine feste Konstante. Eine Präsenz, die man nicht übersehen kann, nicht weil sie laut ist, sondern weil sie den Raum erfüllt. Ihr Lachen ist warm, ehrlich und frei von jeder Zurückhaltung. Es nimmt Schwere aus Gesprächen und lässt selbst schwierige Tage für einen Moment leichter wirken.",
           "Sie spricht, wie sie denkt: direkt, ungefiltert und ohne jede Form von taktischem Kalkül. Für viele wirkt sie dadurch fast einfach, als hätte sie nie gelernt, Dinge kompliziert zu machen oder sich hinter einer Fassade zu verstecken. Doch genau in dieser Offenheit liegt eine Form von Stärke, die man erst erkennt, wenn man genauer hinsieht.",
@@ -52,7 +52,7 @@ const CHARACTER_CONFIG = {
         id: "fourth",
         nav: "Das Kind?",
         title: "Kaida - Das Kind?",
-        background: "assets/images/backgrounds/Kaida/background_kaida.png",
+        background: "assets/images/backgrounds/Kaida/background_child.png",
         paragraphs: [
           "Über ihre Kindheit spricht Kaida nicht. Es ist kein Zögern und kein Ausweichen, sondern eine bewusste Entscheidung. Sie weiß genau, woher sie kommt, kennt ihre Ursprünge bis ins Detail, doch dieser Teil ihrer Geschichte bleibt verschlossen.",
           "Vielleicht, weil er Antworten liefern würde, die niemand hören will. Vielleicht, weil er ein Bild zeichnen würde, das nicht zu dem passt, was man heute sieht. Oder vielleicht, weil genau dort der Punkt liegt, an dem Kaida selbst aufgehört hat, zurückzublicken."
@@ -726,3 +726,4 @@ closeGalleryLightboxBtn.addEventListener("click", closeGalleryLightbox);
 loadVolume();
 updateToggleLabel();
 openSelectionScreen();
+
