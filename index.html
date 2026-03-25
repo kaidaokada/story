@@ -60,6 +60,17 @@
     </section>
   </main>
 
+  <section class="gallery-section" aria-labelledby="galleryTitle">
+    <div class="gallery-header">
+      <p class="gallery-kicker">Galerie</p>
+      <h2 id="galleryTitle">Blicke auf Kaida</h2>
+      <p class="gallery-copy">Ein eigener Bereich jenseits der Kapitel. Neue Bilder im Ordner <code>assets/images/gallery</code> erscheinen hier automatisch.</p>
+    </div>
+    <div id="galleryGrid" class="gallery-grid" aria-live="polite">
+      <p class="gallery-empty">Galerie wird geladen...</p>
+    </div>
+  </section>
+
   <noscript>
     <div class="noscript-banner">
       Diese Seite funktioniert am besten mit aktiviertem JavaScript. Ohne JavaScript bleibt nur der Prolog sichtbar.
@@ -87,6 +98,7 @@
       <h2 id="legalTitle">Rechtshinweise</h2>
       <p>Die Inhalte dieser Website, einschliesslich Texte, Gestaltung, Audioinhalte und Quellcode, sind urheberrechtlich geschuetzt.</p>
       <p>Jegliche Nutzung, Vervielfaeltigung oder Weiterverbreitung ist ohne ausdrueckliche Zustimmung nicht gestattet.</p>
+      <p>Die in der Galerie gezeigten Screenshots wurden nicht von mir erstellt. Fuer Herkunft, Erstellung und etwaige Rechte Dritter an diesen Screenshots uebernehme ich keine Verantwortung.</p>
     </div>
   </div>
 
@@ -98,6 +110,15 @@
         <button id="acceptAudio" type="button">Ja</button>
         <button id="declineAudio" type="button">Nein</button>
       </div>
+    </div>
+  </div>
+
+  <div id="galleryLightbox" class="gallery-lightbox hidden" role="dialog" aria-modal="true" aria-labelledby="galleryLightboxTitle" aria-hidden="true">
+    <div class="gallery-lightbox-card">
+      <button id="closeGalleryLightbox" class="close-btn" type="button" aria-label="Galerie schliessen">&#10005;</button>
+      <h2 id="galleryLightboxTitle" class="sr-only">Galeriebild</h2>
+      <img id="galleryLightboxImage" src="" alt="">
+      <p id="galleryLightboxCaption" class="gallery-lightbox-caption"></p>
     </div>
   </div>
 

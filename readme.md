@@ -16,6 +16,7 @@ Atmosphaerische Single-Page-Story ueber die Figur Kaida. Das Projekt ist ein sta
 - Die aktive Sektion kann ueber den URL-Hash direkt verlinkt werden.
 - Lautstaerke und Audio-Consent werden in `localStorage` gespeichert, falls verfuegbar.
 - Bei reduziertem Bewegungsschema werden Maus-Parallax und Animationen abgeschwaecht.
+- Die Galerie liest neue Bilder automatisch aus `assets/images/gallery`, wenn die Seite ueber einen lokalen oder produktiven Webserver mit Verzeichnisanzeige ausgeliefert wird.
 
 ## Lokale Nutzung
 
@@ -26,6 +27,8 @@ python -m http.server 8000
 ```
 
 Danach ist die Seite unter [http://localhost:8000](http://localhost:8000) erreichbar.
+
+Die Galerie sollte nicht direkt per `file:///...` geoeffnet werden, weil Browser dort keinen Ordnerinhalt nachladen koennen.
 
 ## Wartungshinweise
 

@@ -7,6 +7,11 @@ const declineBtn = document.getElementById("declineAudio");
 const legal = document.getElementById("legalOverlay");
 const openLegalBtn = document.getElementById("openLegal");
 const closeLegalBtn = document.getElementById("closeLegal");
+const galleryGrid = document.getElementById("galleryGrid");
+const galleryLightbox = document.getElementById("galleryLightbox");
+const galleryLightboxImage = document.getElementById("galleryLightboxImage");
+const galleryLightboxCaption = document.getElementById("galleryLightboxCaption");
+const closeGalleryLightboxBtn = document.getElementById("closeGalleryLightbox");
 const items = Array.from(document.querySelectorAll(".menu-item"));
 const contents = Array.from(document.querySelectorAll(".content"));
 const contentBox = document.querySelector(".content-box");
@@ -15,6 +20,8 @@ const audioStatus = document.getElementById("audioStatus");
 const AUDIO_VOLUME_KEY = "kaida-volume";
 const AUDIO_CONSENT_KEY = "kaida-audio-consent";
 const DEFAULT_SECTION_ID = "prolog";
+const GALLERY_DIRECTORY = "assets/images/gallery/";
+const GALLERY_FILE_PATTERN = /\.(avif|gif|jpe?g|png|webp)$/i;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let activeDialog = null;
@@ -190,6 +197,97 @@ function closeConsent() {
   closeDialog(consent);
 }
 
+function closeGalleryLightbox() {
+  closeDialog(galleryLightbox);
+}
+
+function formatGalleryLabel(fileName) {
+  return fileName
+    .replace(/\.[^.]+$/, "")
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function createGalleryCard(imagePath) {
+  const fileName = imagePath.split("/").pop() || imagePath;
+  const label = formatGalleryLabel(fileName);
+  const button = document.createElement("button");
+  const image = document.createElement("img");
+  const labelBox = document.createElement("span");
+  const title = document.createElement("span");
+  const meta = document.createElement("span");
+
+  button.type = "button";
+  button.className = "gallery-card";
+  button.setAttribute("aria-label", `${label} vergroessern`);
+  button.dataset.imagePath = imagePath;
+  button.dataset.imageLabel = label;
+
+  image.src = imagePath;
+  image.alt = label;
+  image.loading = "lazy";
+  image.decoding = "async";
+
+  labelBox.className = "gallery-card-label";
+  title.className = "gallery-card-title";
+  title.textContent = label;
+  meta.className = "gallery-card-meta";
+  meta.textContent = "Klicken zum Oeffnen";
+
+  labelBox.append(title, meta);
+  button.append(image, labelBox);
+
+  button.addEventListener("click", () => {
+    galleryLightboxImage.src = imagePath;
+    galleryLightboxImage.alt = label;
+    galleryLightboxCaption.textContent = label;
+    openDialog(galleryLightbox, button);
+  });
+
+  return button;
+}
+
+function renderGallery(imagePaths) {
+  galleryGrid.replaceChildren();
+
+  if (imagePaths.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "gallery-empty";
+    empty.textContent = "Im Galerieordner wurden noch keine unterstuetzten Bilddateien gefunden.";
+    galleryGrid.append(empty);
+    return;
+  }
+
+  imagePaths.forEach((imagePath) => {
+    galleryGrid.append(createGalleryCard(imagePath));
+  });
+}
+
+async function loadGallery() {
+  try {
+    const response = await fetch(GALLERY_DIRECTORY, { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error(`Gallery request failed with status ${response.status}`);
+    }
+
+    const markup = await response.text();
+    const parser = new DOMParser();
+    const documentFragment = parser.parseFromString(markup, "text/html");
+    const imagePaths = Array.from(documentFragment.querySelectorAll("a[href]"))
+      .map((link) => link.getAttribute("href") || "")
+      .filter((href) => GALLERY_FILE_PATTERN.test(href))
+      .map((href) => new URL(href, `${window.location.origin}/${GALLERY_DIRECTORY}`).pathname.replace(/^\//, ""))
+      .sort((left, right) => left.localeCompare(right, undefined, { sensitivity: "base" }));
+
+    renderGallery(imagePaths);
+  } catch (_error) {
+    galleryGrid.innerHTML = '<p class="gallery-empty">Die Galerie konnte nicht automatisch aus dem Ordner gelesen werden. Bitte nutze einen lokalen Server mit aktivierter Verzeichnisanzeige, damit neue Bilder automatisch erscheinen.</p>';
+  }
+}
+
 function trapFocus(event) {
   if (!activeDialog || event.key !== "Tab") {
     return;
@@ -297,6 +395,8 @@ document.addEventListener("keydown", (event) => {
       closeLegal();
     } else if (activeDialog === consent) {
       closeConsent();
+    } else if (activeDialog === galleryLightbox) {
+      closeGalleryLightbox();
     }
   }
 });
@@ -307,6 +407,15 @@ audio.addEventListener("play", updateToggleLabel);
 audio.addEventListener("pause", updateToggleLabel);
 audio.addEventListener("ended", updateToggleLabel);
 
+galleryLightbox.addEventListener("click", (event) => {
+  if (event.target === galleryLightbox) {
+    closeGalleryLightbox();
+  }
+});
+
+closeGalleryLightboxBtn.addEventListener("click", closeGalleryLightbox);
+
 loadPreferences();
 handleHashNavigation();
 updateToggleLabel();
+loadGallery();
