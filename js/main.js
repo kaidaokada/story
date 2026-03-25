@@ -141,7 +141,8 @@ const openLegalBtn = document.getElementById("openLegal");
 const closeLegalBtn = document.getElementById("closeLegal");
 const openSelectionBtn = document.getElementById("openSelection");
 const jumpToGalleryBtn = document.getElementById("jumpToGallery");
-const gallerySection = document.querySelector(".gallery-section");
+const galleryOverlay = document.getElementById("galleryOverlay");
+const closeGalleryOverlayBtn = document.getElementById("closeGalleryOverlay");
 const galleryGrid = document.getElementById("galleryGrid");
 const galleryLightbox = document.getElementById("galleryLightbox");
 const galleryLightboxImage = document.getElementById("galleryLightboxImage");
@@ -313,6 +314,14 @@ function maybeAskForAudio(trigger) {
 
 function closeGalleryLightbox() {
   closeDialog(galleryLightbox);
+}
+
+function openGalleryOverlay() {
+  openDialog(galleryOverlay, jumpToGalleryBtn);
+}
+
+function closeGalleryOverlay() {
+  closeDialog(galleryOverlay);
 }
 
 function formatGalleryLabel(fileName) {
@@ -587,9 +596,8 @@ if (!prefersReducedMotion.matches) {
 openLegalBtn.addEventListener("click", openLegal);
 closeLegalBtn.addEventListener("click", closeLegal);
 openSelectionBtn.addEventListener("click", openSelectionScreen);
-jumpToGalleryBtn.addEventListener("click", () => {
-  gallerySection.scrollIntoView({ behavior: prefersReducedMotion.matches ? "auto" : "smooth", block: "start" });
-});
+jumpToGalleryBtn.addEventListener("click", openGalleryOverlay);
+closeGalleryOverlayBtn.addEventListener("click", closeGalleryOverlay);
 
 legal.addEventListener("click", (event) => {
   if (event.target === legal) {
@@ -600,6 +608,12 @@ legal.addEventListener("click", (event) => {
 consent.addEventListener("click", (event) => {
   if (event.target === consent) {
     closeConsent();
+  }
+});
+
+galleryOverlay.addEventListener("click", (event) => {
+  if (event.target === galleryOverlay) {
+    closeGalleryOverlay();
   }
 });
 
@@ -625,6 +639,8 @@ document.addEventListener("keydown", (event) => {
       closeLegal();
     } else if (activeDialog === consent) {
       closeConsent();
+    } else if (activeDialog === galleryOverlay) {
+      closeGalleryOverlay();
     } else if (activeDialog === galleryLightbox) {
       closeGalleryLightbox();
     }

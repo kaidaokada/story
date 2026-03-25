@@ -70,12 +70,6 @@
       </section>
     </main>
 
-    <section class="gallery-section" aria-label="Galerie">
-      <div id="galleryGrid" class="gallery-grid" aria-live="polite">
-        <p class="gallery-empty">Galerie wird geladen...</p>
-      </div>
-    </section>
-
     <noscript>
       <div class="noscript-banner">
         Diese Seite funktioniert am besten mit aktiviertem JavaScript.
@@ -131,6 +125,17 @@
       <h2 id="galleryLightboxTitle" class="sr-only">Galeriebild</h2>
       <img id="galleryLightboxImage" src="" alt="">
       <p id="galleryLightboxCaption" class="gallery-lightbox-caption"></p>
+    </div>
+  </div>
+
+  <div id="galleryOverlay" class="gallery-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="galleryOverlayTitle" aria-hidden="true">
+    <div class="gallery-overlay-card">
+      <button id="closeGalleryOverlay" class="close-btn" type="button" aria-label="Galerie schliessen">&#10005;</button>
+      <p class="gallery-overlay-kicker">Galerie</p>
+      <h2 id="galleryOverlayTitle">Augenblicke</h2>
+      <div id="galleryGrid" class="gallery-grid" aria-live="polite">
+        <p class="gallery-empty">Galerie wird geladen...</p>
+      </div>
     </div>
   </div>
 

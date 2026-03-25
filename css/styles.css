@@ -347,22 +347,6 @@ body[data-character="tori"] {
   margin-bottom: 16px;
 }
 
-.gallery-section {
-  margin: 0 24px 80px 80px;
-  padding: 28px;
-  background: linear-gradient(135deg, rgba(7, 10, 14, 0.86), rgba(20, 15, 12, 0.78));
-  border: 1px solid var(--border);
-  box-shadow: 0 24px 60px var(--shadow);
-}
-
-body[data-character="tori"] .gallery-section {
-  background: linear-gradient(135deg, rgba(9, 14, 21, 0.88), rgba(16, 22, 30, 0.8));
-}
-
-body[data-character="kaida"] .gallery-section {
-  background: linear-gradient(135deg, rgba(12, 9, 12, 0.88), rgba(27, 11, 14, 0.8));
-}
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -508,6 +492,7 @@ button:focus-visible {
 
 .legal-overlay,
 .audio-consent,
+.gallery-overlay,
 .gallery-lightbox {
   position: fixed;
   inset: 0;
@@ -523,13 +508,19 @@ button:focus-visible {
   z-index: 10000;
 }
 
+.gallery-overlay {
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 10001;
+}
+
 .gallery-lightbox {
   background: rgba(0, 0, 0, 0.92);
-  z-index: 10001;
+  z-index: 10002;
 }
 
 .legal-card,
 .audio-consent-box,
+.gallery-overlay-card,
 .gallery-lightbox-card {
   position: relative;
   width: min(100%, 760px);
@@ -543,6 +534,31 @@ button:focus-visible {
   width: min(100%, 1040px);
   max-height: 100%;
   padding-top: 56px;
+}
+
+.gallery-overlay-card {
+  width: min(100%, 980px);
+  max-height: min(82vh, 920px);
+  overflow-y: auto;
+  padding-top: 56px;
+  background: linear-gradient(160deg, rgba(9, 11, 15, 0.96), rgba(18, 14, 17, 0.94));
+}
+
+body[data-character="tori"] .gallery-overlay-card {
+  background: linear-gradient(160deg, rgba(8, 12, 18, 0.96), rgba(15, 21, 29, 0.94));
+}
+
+.gallery-overlay-kicker {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.gallery-overlay-card h2 {
+  margin-bottom: 18px;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
 }
 
 .legal-card h2,
