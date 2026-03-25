@@ -2,6 +2,10 @@ const audio = document.getElementById("bgm");
 const toggle = document.getElementById("audioToggle");
 const slider = document.getElementById("volumeSlider");
 
+const consent = document.getElementById("audioConsent");
+const acceptBtn = document.getElementById("acceptAudio");
+const declineBtn = document.getElementById("declineAudio");
+
 // Startlautstärke
 audio.volume = 0.75;
 slider.oninput = () => {
@@ -63,4 +67,16 @@ legal.onclick = (e)=>{
   if(e.target===legal){
     legal.classList.add("hidden");
   }
+};
+
+
+acceptBtn.onclick = () => {
+  audio.volume = parseFloat(slider.value);
+  audio.play();
+  toggle.textContent = "⏸ Sound";
+  consent.style.display = "none";
+};
+
+declineBtn.onclick = () => {
+  consent.style.display = "none";
 };
