@@ -1,4 +1,5 @@
 const audio = document.getElementById("bgm");
+audio.volume = 0.75;
 const toggle = document.getElementById("audioToggle");
 
 toggle.onclick = () => {
