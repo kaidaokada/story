@@ -31,6 +31,10 @@ body {
   overflow-x: hidden;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -151,6 +155,11 @@ body::after {
   backdrop-filter: blur(14px);
 }
 
+.content-box:focus {
+  outline: 1px solid rgba(255, 255, 255, 0.24);
+  outline-offset: 4px;
+}
+
 .content {
   display: none;
 }
@@ -192,6 +201,7 @@ button:focus-visible {
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+  max-width: min(280px, calc(100vw - 40px));
 }
 
 #volumeSlider {
@@ -242,6 +252,12 @@ button:focus-visible {
   position: fixed;
   bottom: 20px;
   left: 20px;
+}
+
+.status-text {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: right;
 }
 
 .legal-overlay,
@@ -301,6 +317,14 @@ button:focus-visible {
 
 .hidden {
   display: none !important;
+}
+
+.noscript-banner {
+  margin: 20px;
+  padding: 12px 14px;
+  background: rgba(20, 22, 26, 0.92);
+  border: 1px solid var(--border);
+  color: var(--muted);
 }
 
 .sr-only {
@@ -367,6 +391,10 @@ button:focus-visible {
 
   .legal-button {
     padding: 0 20px 24px;
+  }
+
+  .status-text {
+    text-align: left;
   }
 }
 
