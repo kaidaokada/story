@@ -7,7 +7,7 @@ const CHARACTER_CONFIG = {
     audioSource: "assets/audio/kaida.ogg",
     galleryDirectory: "assets/images/gallery_kaida/",
     galleryTitle: "Blicke auf Kaida",
-    galleryCopy: "Ein eigener Bereich jenseits der Kapitel. Neue Bilder aus dem Kaida-Ordner erscheinen hier automatisch.",
+    galleryCopy: "Ein stiller Blick auf Kaida.",
     sections: [
       {
         id: "prolog",
@@ -67,7 +67,7 @@ const CHARACTER_CONFIG = {
     audioSource: "assets/audio/tori.ogg",
     galleryDirectory: "assets/images/gallery_tori/",
     galleryTitle: "Blicke auf Tori",
-    galleryCopy: "Ein eigener Bereich abseits der Kapitel. Neue Bilder aus dem Tori-Ordner erscheinen hier automatisch.",
+    galleryCopy: "Ein stiller Blick auf Tori.",
     sections: [
       {
         id: "prolog",
@@ -395,7 +395,7 @@ async function loadGallery(directory) {
 }
 
 function setPageBackground(imagePath) {
-  document.documentElement.style.setProperty("--page-background", `url('${imagePath}')`);
+  document.documentElement.style.setProperty("--page-background-image", `url("${imagePath}")`);
 }
 
 function getSectionById(sectionId) {
