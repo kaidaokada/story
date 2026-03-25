@@ -40,7 +40,7 @@
         background: "assets/images/backgrounds/Kaida/background_kunoichi.png",
         paragraphs: [
           "Was niemand sieht, ist das, was aus Kaida gemacht wurde. Sie wurde nicht geformt, um zu leben, sondern um zu funktionieren. Jeder Schritt, jede Bewegung, jeder Gedanke wurde auf ein Ziel reduziert: Effizienz.",
-          "Ihr Name innerhalb des Clans lautete Mukon no Hana, die seelenlose Blüte. Ein Titel ohne Wärme, ohne Identität, nur ein Zeichen dafür, dass nichts Menschliches mehr übrig war. Gefühle wurden nicht unterdrückt, sie wurden entfernt. Systematisch, gründlich und ohne Rest.",
+          "Ihr Name innerhalb des Clans lautete Mukon no Hana, die Blume ohne Wurzeln. Ein Titel ohne Wärme, ohne Identität, nur ein Zeichen dafür, dass nichts Menschliches mehr übrig war. Gefühle wurden nicht unterdrückt, sie wurden entfernt. Systematisch, gründlich und ohne Rest.",
           "Was blieb, war Klarheit. Eine kalte, präzise Form von Existenz. Kaida führte Befehle aus, ohne zu zögern, ohne zu hinterfragen und ohne dabei etwas zu empfinden. Genau das machte sie so gefährlich.",
           "Bis zu dem Moment, der niemals hätte passieren dürfen. Kaida lernte, was Liebe ist. Nicht plötzlich und nicht laut, sondern leise und dann unumkehrbar. Etwas in ihr begann zu leben, das längst verloren geglaubt war.",
           "Mit diesem Gefühl kam ein Riss. Ein Bruch zwischen dem, was sie war, und dem, was sie sein wollte. Sie entschied sich gegen ihre Bestimmung und für ein Leben, das ihr nie zugedacht war.",
