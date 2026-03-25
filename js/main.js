@@ -5,7 +5,10 @@ const CHARACTER_CONFIG = {
     subtitle: "Eine Geschichte zwischen Erinnerung, Verlust und dem, was im Schatten ueberlebt.",
     audioLabel: "Mukon no Hana",
     audioSource: "assets/audio/kaida.ogg",
-    galleryDirectory: "assets/images/gallery_kaida/",
+    galleryImages: [
+      "assets/images/gallery_kaida/kaida_glare.png",
+      "assets/images/gallery_kaida/kaida_sporty.png"
+    ],
     sections: [
       {
         id: "prolog",
@@ -63,7 +66,9 @@ const CHARACTER_CONFIG = {
     subtitle: "Mondwaechterin",
     audioLabel: "Torinai Nihal",
     audioSource: "assets/audio/tori.ogg",
-    galleryDirectory: "assets/images/gallery_tori/",
+    galleryImages: [
+      "assets/images/gallery_tori/tori_example.png"
+    ],
     sections: [
       {
         id: "prolog",
@@ -116,7 +121,6 @@ const CHARACTER_CONFIG = {
 
 const AUDIO_VOLUME_KEY = "story-audio-volume";
 const AUDIO_CONSENT_KEY = "story-audio-consent";
-const GALLERY_FILE_PATTERN = /\.(avif|gif|jpe?g|png|webp)$/i;
 const BACKGROUND_FADE_MS = 650;
 
 const body = document.body;
@@ -373,27 +377,8 @@ function renderGallery(imagePaths) {
   });
 }
 
-async function loadGallery(directory) {
-  try {
-    const response = await fetch(directory, { cache: "no-store" });
-
-    if (!response.ok) {
-      throw new Error(`Gallery request failed with status ${response.status}`);
-    }
-
-    const markup = await response.text();
-    const parser = new DOMParser();
-    const parsedDocument = parser.parseFromString(markup, "text/html");
-    const imagePaths = Array.from(parsedDocument.querySelectorAll("a[href]"))
-      .map((link) => link.getAttribute("href") || "")
-      .filter((href) => GALLERY_FILE_PATTERN.test(href))
-      .map((href) => new URL(href, `${window.location.origin}/${directory}`).pathname.replace(/^\//, ""))
-      .sort((left, right) => left.localeCompare(right, undefined, { sensitivity: "base" }));
-
-    renderGallery(imagePaths);
-  } catch (_error) {
-    galleryGrid.innerHTML = '<p class="gallery-empty">Die Galerie konnte nicht automatisch aus dem Ordner gelesen werden. Bitte nutze einen Webserver mit aktivierter Verzeichnisanzeige, damit neue Bilder automatisch erscheinen.</p>';
-  }
+function loadGallery(imagePaths) {
+  renderGallery(imagePaths);
 }
 
 function setPageBackground(imagePath) {
@@ -515,7 +500,7 @@ function applyCharacter(characterKey, trigger) {
 
   closeSelectionScreen();
   handleHashNavigation();
-  loadGallery(character.galleryDirectory);
+  loadGallery(character.galleryImages);
   maybeAskForAudio(trigger);
 }
 
