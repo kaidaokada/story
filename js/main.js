@@ -2,7 +2,7 @@ const CHARACTER_CONFIG = {
   kaida: {
     title: "Kaida Okada",
     eyebrow: "\u8A18\u61B6\u3068\u5F71\u306E\u7269\u8A9E",
-    subtitle: "Eine Geschichte zwischen Erinnerung, Verlust und dem, was im Schatten ueberlebt.",
+    subtitle: "Eine Geschichte zwischen Erinnerung, Verlust und dem, was im Schatten überlebt.",
     audioLabel: "Mukon no Hana",
     audioSource: "assets/audio/kaida.ogg",
     galleryImages: [
@@ -16,8 +16,8 @@ const CHARACTER_CONFIG = {
         title: "Prolog",
         background: "assets/images/backgrounds/Kaida/background_kaida.png",
         paragraphs: [
-          "Der Wind traegt Erinnerungen, die laengst haetten vergessen sein sollen. Nicht laut, nicht klar, sondern leise, wie ein Echo aus einer Zeit, die niemand mehr greifen kann. Zwischen Schatten und Stille existiert etwas, das sich nicht vollstaendig zeigen will. Eine Praesenz, die spuerbar ist, aber nie ganz sichtbar wird.",
-          "Ein Name kehrt dabei immer wieder zurueck: Kaida. Fuer manche ist sie nichts weiter als eine gewoehnliche Frau, fuer andere etwas, das sich nicht in einfache Worte fassen laesst. Je laenger man hinsieht, desto mehr beginnt das Bild zu verschwimmen, als wuerde sich die Wahrheit selbst entziehen.",
+          "Der Wind trägt Erinnerungen, die längst hätten vergessen sein sollen. Nicht laut, nicht klar, sondern leise, wie ein Echo aus einer Zeit, die niemand mehr greifen kann. Zwischen Schatten und Stille existiert etwas, das sich nicht vollständig zeigen will. Eine Präsenz, die spürbar ist, aber nie ganz sichtbar wird.",
+          "Ein Name kehrt dabei immer wieder zurück: Kaida. Für manche ist sie nichts weiter als eine gewöhnliche Frau, für andere etwas, das sich nicht in einfache Worte fassen lässt. Je länger man hinsieht, desto mehr beginnt das Bild zu verschwimmen, als würde sich die Wahrheit selbst entziehen.",
           "Und vielleicht ist genau das der Moment, in dem man begreift, dass Kaida nicht das ist, was man sieht, sondern das, was sich dahinter verbirgt."
         ]
       },
@@ -27,10 +27,10 @@ const CHARACTER_CONFIG = {
         title: "Kaida - Die Sushimeisterin",
         background: "assets/images/backgrounds/Kaida/background_kaida.png",
         paragraphs: [
-          "Im Futomaki ist Kaida eine feste Konstante. Eine Praesenz, die man nicht uebersehen kann, nicht weil sie laut ist, sondern weil sie den Raum erfuellt. Ihr Lachen ist warm, ehrlich und frei von jeder Zurueckhaltung. Es nimmt Schwere aus Gespraechen und laesst selbst schwierige Tage fuer einen Moment leichter wirken.",
-          "Sie spricht, wie sie denkt: direkt, ungefiltert und ohne jede Form von taktischem Kalkuel. Fuer viele wirkt sie dadurch fast einfach, als haette sie nie gelernt, Dinge kompliziert zu machen oder sich hinter einer Fassade zu verstecken. Doch genau in dieser Offenheit liegt eine Form von Staerke, die man erst erkennt, wenn man genauer hinsieht.",
-          "Denn sobald es um die Personen geht, die ihr nahestehen, veraendert sich etwas. Ihre Haltung wird fester, ihr Blick klarer. Ihre Angestellten sind fuer sie mehr als nur Teil eines Geschaefts, sie sind Verantwortung, vielleicht sogar Familie. Und wer zu ihr gehoert, wird beschuetzt. Ohne Zoegern, ohne Diskussion, ohne einen zweiten Gedanken.",
-          "Fuer Aussenstehende bleibt sie die Frau hinter dem Tresen, die Sushi macht, lacht und lebt. Doch wer genauer hinsieht, erkennt, dass diese Einfachheit kein Zufall ist. Sie ist gewaehlt."
+          "Im Futomaki ist Kaida eine feste Konstante. Eine Präsenz, die man nicht übersehen kann, nicht weil sie laut ist, sondern weil sie den Raum erfüllt. Ihr Lachen ist warm, ehrlich und frei von jeder Zurückhaltung. Es nimmt Schwere aus Gesprächen und lässt selbst schwierige Tage für einen Moment leichter wirken.",
+          "Sie spricht, wie sie denkt: direkt, ungefiltert und ohne jede Form von taktischem Kalkül. Für viele wirkt sie dadurch fast einfach, als hätte sie nie gelernt, Dinge kompliziert zu machen oder sich hinter einer Fassade zu verstecken. Doch genau in dieser Offenheit liegt eine Form von Stärke, die man erst erkennt, wenn man genauer hinsieht.",
+          "Denn sobald es um die Personen geht, die ihr nahestehen, verändert sich etwas. Ihre Haltung wird fester, ihr Blick klarer. Ihre Angestellten sind für sie mehr als nur Teil eines Geschäfts, sie sind Verantwortung, vielleicht sogar Familie. Und wer zu ihr gehört, wird beschützt. Ohne Zögern, ohne Diskussion, ohne einen zweiten Gedanken.",
+          "Für Außenstehende bleibt sie die Frau hinter dem Tresen, die Sushi macht, lacht und lebt. Doch wer genauer hinsieht, erkennt, dass diese Einfachheit kein Zufall ist. Sie ist gewählt."
         ]
       },
       {
@@ -40,12 +40,12 @@ const CHARACTER_CONFIG = {
         background: "assets/images/backgrounds/Kaida/background_kaida.png",
         paragraphs: [
           "Was niemand sieht, ist das, was aus Kaida gemacht wurde. Sie wurde nicht geformt, um zu leben, sondern um zu funktionieren. Jeder Schritt, jede Bewegung, jeder Gedanke wurde auf ein Ziel reduziert: Effizienz.",
-          "Ihr Name innerhalb des Clans lautete Mukon no Hana, die seelenlose Bluete. Ein Titel ohne Waerme, ohne Identitaet, nur ein Zeichen dafuer, dass nichts Menschliches mehr uebrig war. Gefuehle wurden nicht unterdrueckt, sie wurden entfernt. Systematisch, gruendlich und ohne Rest.",
-          "Was blieb, war Klarheit. Eine kalte, praezise Form von Existenz. Kaida fuehrte Befehle aus, ohne zu zoegern, ohne zu hinterfragen und ohne dabei etwas zu empfinden. Genau das machte sie so gefaehrlich.",
-          "Bis zu dem Moment, der niemals haette passieren duerfen. Kaida lernte, was Liebe ist. Nicht ploetzlich und nicht laut, sondern leise und dann unumkehrbar. Etwas in ihr begann zu leben, das laengst verloren geglaubt war.",
-          "Mit diesem Gefuehl kam ein Riss. Ein Bruch zwischen dem, was sie war, und dem, was sie sein wollte. Sie entschied sich gegen ihre Bestimmung und fuer ein Leben, das ihr nie zugedacht war.",
+          "Ihr Name innerhalb des Clans lautete Mukon no Hana, die seelenlose Blüte. Ein Titel ohne Wärme, ohne Identität, nur ein Zeichen dafür, dass nichts Menschliches mehr übrig war. Gefühle wurden nicht unterdrückt, sie wurden entfernt. Systematisch, gründlich und ohne Rest.",
+          "Was blieb, war Klarheit. Eine kalte, präzise Form von Existenz. Kaida führte Befehle aus, ohne zu zögern, ohne zu hinterfragen und ohne dabei etwas zu empfinden. Genau das machte sie so gefährlich.",
+          "Bis zu dem Moment, der niemals hätte passieren dürfen. Kaida lernte, was Liebe ist. Nicht plötzlich und nicht laut, sondern leise und dann unumkehrbar. Etwas in ihr begann zu leben, das längst verloren geglaubt war.",
+          "Mit diesem Gefühl kam ein Riss. Ein Bruch zwischen dem, was sie war, und dem, was sie sein wollte. Sie entschied sich gegen ihre Bestimmung und für ein Leben, das ihr nie zugedacht war.",
           "Und sie verlor alles. Ihre Frau. Ihre Tochter.",
-          "Seit diesem Tag laesst Kaida niemanden mehr wirklich nah an sich heran. Nicht aus Angst, sondern aus Ueberzeugung. Denn in ihren Augen ist sie selbst nichts, das Sicherheit geben kann, sondern etwas, das zerstoert."
+          "Seit diesem Tag lässt Kaida niemanden mehr wirklich nah an sich heran. Nicht aus Angst, sondern aus Überzeugung. Denn in ihren Augen ist sie selbst nichts, das Sicherheit geben kann, sondern etwas, das zerstört."
         ]
       },
       {
@@ -54,16 +54,16 @@ const CHARACTER_CONFIG = {
         title: "Kaida - Das Kind?",
         background: "assets/images/backgrounds/Kaida/background_kaida.png",
         paragraphs: [
-          "Ueber ihre Kindheit spricht Kaida nicht. Es ist kein Zoegern und kein Ausweichen, sondern eine bewusste Entscheidung. Sie weiss genau, woher sie kommt, kennt ihre Urspruenge bis ins Detail, doch dieser Teil ihrer Geschichte bleibt verschlossen.",
-          "Vielleicht, weil er Antworten liefern wuerde, die niemand hoeren will. Vielleicht, weil er ein Bild zeichnen wuerde, das nicht zu dem passt, was man heute sieht. Oder vielleicht, weil genau dort der Punkt liegt, an dem Kaida selbst aufgehoert hat, zurueckzublicken."
+          "Über ihre Kindheit spricht Kaida nicht. Es ist kein Zögern und kein Ausweichen, sondern eine bewusste Entscheidung. Sie weiß genau, woher sie kommt, kennt ihre Ursprünge bis ins Detail, doch dieser Teil ihrer Geschichte bleibt verschlossen.",
+          "Vielleicht, weil er Antworten liefern würde, die niemand hören will. Vielleicht, weil er ein Bild zeichnen würde, das nicht zu dem passt, was man heute sieht. Oder vielleicht, weil genau dort der Punkt liegt, an dem Kaida selbst aufgehört hat, zurückzublicken."
         ]
       }
     ]
   },
   tori: {
     title: "Torinai Nihal",
-    eyebrow: "Mondwaechterin",
-    subtitle: "Mondwaechterin",
+    eyebrow: "Mondwächterin",
+    subtitle: "Mondwächterin",
     audioLabel: "Torinai Nihal",
     audioSource: "assets/audio/tori.ogg",
     galleryImages: [
@@ -76,31 +76,31 @@ const CHARACTER_CONFIG = {
         title: "Prolog",
         background: "assets/images/backgrounds/Tori/background_tori_b.png",
         paragraphs: [
-          "Diese Geschichte handelt von einer Heimatlosen, die ihren Hafen gefunden hat. Sie erinnert daran, dass selbst die aussichtslosesten Wege nicht im Nichts enden muessen, sondern in etwas Ganzem, etwas Erfuellendem muenden koennen.",
-          "Was Tori einst genommen wurde, schien unwiederbringlich verloren: Herkunft, Zugehoerigkeit, der Klang eines wahren Namens. Und doch fuehrte ausgerechnet die Leere sie an einen Punkt, an dem all das in anderer Form zu ihr zurueckkehrte.",
+          "Diese Geschichte handelt von einer Heimatlosen, die ihren Hafen gefunden hat. Sie erinnert daran, dass selbst die aussichtslosesten Wege nicht im Nichts enden müssen, sondern in etwas Ganzem, etwas Erfüllendem münden können.",
+          "Was Tori einst genommen wurde, schien unwiederbringlich verloren: Herkunft, Zugehörigkeit, der Klang eines wahren Namens. Und doch führte ausgerechnet die Leere sie an einen Punkt, an dem all das in anderer Form zu ihr zurückkehrte.",
           "Am Ende steht keine makellose Heldin, sondern eine Frau, die trotz Verlust, Gewalt und Einsamkeit genau das wiedergefunden hat, was man ihr geraubt hatte: Wurzeln, Familie und einen Ort, an dem sie bleiben darf."
         ]
       },
       {
         id: "second",
-        nav: "Torinai - Die Waechterin",
-        title: "Torinai - Die Waechterin",
+        nav: "Torinai - Die Wächterin",
+        title: "Torinai - Die Wächterin",
         background: "assets/images/backgrounds/Tori/background_tori_w.png",
         paragraphs: [
-          "Auch wenn viele Tori nicht auf diese Weise kennen, traegt sie ein Erbe in sich, dessen volle Tragweite nicht einmal ihr selbst immer vollkommen bewusst ist. In ihr lebt die Linie des Clans Nihal weiter, und mit ihr ein Dienst, der weit ueber gewoehnliche Pflichterfuellung hinausgeht.",
-          "Tori dient der Gottheit ihrer Familie mit Hingabe und Leidenschaft. Was fuer Aussenstehende wie blinder Gehorsam wirken koennte, ist fuer sie vielmehr ein Einklang aus Bestimmung und Begabung. Gerade im Dienst an diesem Wesen darf sie das sein, worin sie am staerksten ist: entschlossen, scharf, unerschuetterlich.",
-          "Diese Bindung ist fuer Tori absolut, weil ihre Gottheit ihr nicht nur Aufgaben gab, sondern ihr die Geschichte ihres Clans oeffnete. Wo einst Leere war, fanden sich ploetzlich Wurzeln. Wo nur Tori geblieben war, stand auf einmal wieder ein voller Name: Torinai Nihal."
+          "Auch wenn viele Tori nicht auf diese Weise kennen, trägt sie ein Erbe in sich, dessen volle Tragweite nicht einmal ihr selbst immer vollkommen bewusst ist. In ihr lebt die Linie des Clans Nihal weiter, und mit ihr ein Dienst, der weit über gewöhnliche Pflichterfüllung hinausgeht.",
+          "Tori dient der Gottheit ihrer Familie mit Hingabe und Leidenschaft. Was für Außenstehende wie blinder Gehorsam wirken könnte, ist für sie vielmehr ein Einklang aus Bestimmung und Begabung. Gerade im Dienst an diesem Wesen darf sie das sein, worin sie am stärksten ist: entschlossen, scharf, unerschütterlich.",
+          "Diese Bindung ist für Tori absolut, weil ihre Gottheit ihr nicht nur Aufgaben gab, sondern ihr die Geschichte ihres Clans öffnete. Wo einst Leere war, fanden sich plötzlich Wurzeln. Wo nur Tori geblieben war, stand auf einmal wieder ein voller Name: Torinai Nihal."
         ]
       },
       {
         id: "third",
-        nav: "Tori - Die Soeldnerin",
-        title: "Tori - Die Soeldnerin",
+        nav: "Tori - Die Söldnerin",
+        title: "Tori - Die Söldnerin",
         background: "assets/images/backgrounds/Tori/background_tori_b.png",
         paragraphs: [
-          "Toris Erwachsenenleben war lange von der Arbeit als Soeldnerin bestimmt. Sie reiste weit, sah mehr von der Welt, als sie je fuer moeglich gehalten haette, und lernte an unzaehligen Orten, wie teuer Sicherheit oft erkauft wird.",
-          "Auf diesen Wegen begegnete sie Liebe und Verlust, aber auch dem unbedingten Wunsch, jemanden wirklich schuetzen zu wollen. Dieser Wunsch veraenderte sie tiefer als jede Schlacht. Er gab ihrem Leben Richtung, Verantwortung und einen Grund, ueber sich selbst hinauszuwachsen.",
-          "Von der krawallsuechtigen Jugendlichen zur Frau mit Disziplin, Selbstwertgefuehl und einem festen Gefuehl fuer Verantwortung war es ein sehr weiter Weg. Gerade deshalb wirkt Tori heute nicht wie jemand, dem Reife einfach zufiel, sondern wie jemand, der jeden einzelnen Schritt dorthin teuer bezahlen musste."
+          "Toris Erwachsenenleben war lange von der Arbeit als Söldnerin bestimmt. Sie reiste weit, sah mehr von der Welt, als sie je für möglich gehalten hätte, und lernte an ungezählten Orten, wie teuer Sicherheit oft erkauft wird.",
+          "Auf diesen Wegen begegnete sie Liebe und Verlust, aber auch dem unbedingten Wunsch, jemanden wirklich schützen zu wollen. Dieser Wunsch veränderte sie tiefer als jede Schlacht. Er gab ihrem Leben Richtung, Verantwortung und einen Grund, über sich selbst hinauszuwachsen.",
+          "Von der krawallsüchtigen Jugendlichen zur Frau mit Disziplin, Selbstwertgefühl und einem festen Gefühl für Verantwortung war es ein sehr weiter Weg. Gerade deshalb wirkt Tori heute nicht wie jemand, dem Reife einfach zufiel, sondern wie jemand, der jeden einzelnen Schritt dorthin teuer bezahlen musste."
         ]
       },
       {
@@ -109,10 +109,10 @@ const CHARACTER_CONFIG = {
         title: "Ein Fass voll Einsamkeit",
         background: "assets/images/backgrounds/Tori/background_tori_child.png",
         paragraphs: [
-          "Tori verlor frueh alles: Familie, Clan und Identitaet. Als sie eines Morgens in einem Fass im Hafen von Limsa Lominsa erwachte, war von ihrer Vergangenheit kaum mehr uebrig als ein einzelner Name. Tori. Nur Tori.",
-          "Ihre Kindheit war von Verwirrung, Ueberleben und salziger Kaelte gepraegt. Zwischen Seeleuten, morschem Holz und dem Geruch nach Meer stahl sie sich von Tag zu Tag, schlief in ihrem Fass und hielt sich an dem fest, was notduerftig wie ein Zuhause wirkte.",
-          "Wahrscheinlich waere sie dort irgendwann still zugrunde gegangen, wenn nicht eines Tages eine andere kleine Miqo'te auf sie aufmerksam geworden waere. Aus einem neugierigen Blick in Tori's Fass entstand zuerst Freundschaft, dann Loyalitaet und schliesslich Familie.",
-          "Zum ersten Mal lernte Tori, wie es sich anfuehlt, nicht jeden Tag ums nackte Ueberleben kaempfen zu muessen. Sie wurde adoptiert, Tessia wurde ihre Schwester, und aus einem Kind ohne Herkunft wurde jemand, der bedingungslose Liebe nicht nur ertraeumen, sondern wirklich erfahren durfte."
+          "Tori verlor früh alles: Familie, Clan und Identität. Als sie eines Morgens in einem Fass im Hafen von Limsa Lominsa erwachte, war von ihrer Vergangenheit kaum mehr übrig als ein einzelner Name. Tori. Nur Tori.",
+          "Ihre Kindheit war von Verwirrung, Überleben und salziger Kälte geprägt. Zwischen Seeleuten, morschem Holz und dem Geruch nach Meer stahl sie sich von Tag zu Tag, schlief in ihrem Fass und hielt sich an dem fest, was notdürftig wie ein Zuhause wirkte.",
+          "Wahrscheinlich wäre sie dort irgendwann still zugrunde gegangen, wenn nicht eines Tages eine andere kleine Miqo'te auf sie aufmerksam geworden wäre. Aus einem neugierigen Blick in Tori's Fass entstand zuerst Freundschaft, dann Loyalität und schließlich Familie.",
+          "Zum ersten Mal lernte Tori, wie es sich anfühlt, nicht jeden Tag ums nackte Überleben kämpfen zu müssen. Sie wurde adoptiert, Tessia wurde ihre Schwester, und aus einem Kind ohne Herkunft wurde jemand, der bedingungslose Liebe nicht nur erträumen, sondern wirklich erfahren durfte."
         ]
       }
     ]
@@ -396,7 +396,7 @@ function createGalleryCard(imagePath) {
 
   button.type = "button";
   button.className = "gallery-card";
-  button.setAttribute("aria-label", `${label} vergroessern`);
+  button.setAttribute("aria-label", `${label} vergrößern`);
 
   image.src = imagePath;
   image.alt = label;
@@ -407,7 +407,7 @@ function createGalleryCard(imagePath) {
   title.className = "gallery-card-title";
   title.textContent = label;
   meta.className = "gallery-card-meta";
-  meta.textContent = "Klicken zum Oeffnen";
+  meta.textContent = "Klicken zum Öffnen";
 
   labelBox.append(title, meta);
   button.append(image, labelBox);
@@ -426,7 +426,7 @@ function renderGallery(imagePaths) {
   if (imagePaths.length === 0) {
     const empty = document.createElement("p");
     empty.className = "gallery-empty";
-    empty.textContent = "Im Galerieordner wurden noch keine unterstuetzten Bilddateien gefunden.";
+    empty.textContent = "Im Galerieordner wurden noch keine unterstützten Bilddateien gefunden.";
     galleryGrid.append(empty);
     return;
   }
