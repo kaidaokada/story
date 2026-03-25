@@ -1,6 +1,12 @@
 const audio = document.getElementById("bgm");
-audio.volume = 0.75;
 const toggle = document.getElementById("audioToggle");
+const slider = document.getElementById("volumeSlider");
+
+// Startlautstärke
+audio.volume = 0.75;
+slider.oninput = () => {
+  audio.volume = parseFloat(slider.value);
+};
 
 toggle.onclick = () => {
   if (audio.paused) {
