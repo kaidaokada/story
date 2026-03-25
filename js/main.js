@@ -37,7 +37,7 @@
         id: "third",
         nav: "Die Kunoichi",
         title: "Kaida - Kunoichi",
-        background: "assets/images/backgrounds/Kaida/background_kaida.png",
+        background: "assets/images/backgrounds/Kaida/background_kunoichi.png",
         paragraphs: [
           "Was niemand sieht, ist das, was aus Kaida gemacht wurde. Sie wurde nicht geformt, um zu leben, sondern um zu funktionieren. Jeder Schritt, jede Bewegung, jeder Gedanke wurde auf ein Ziel reduziert: Effizienz.",
           "Ihr Name innerhalb des Clans lautete Mukon no Hana, die seelenlose Blüte. Ein Titel ohne Wärme, ohne Identität, nur ein Zeichen dafür, dass nichts Menschliches mehr übrig war. Gefühle wurden nicht unterdrückt, sie wurden entfernt. Systematisch, gründlich und ohne Rest.",
