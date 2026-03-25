@@ -105,6 +105,7 @@ body[data-character="tori"] {
 .selection-overlay {
   position: absolute;
   inset: 0;
+  pointer-events: none;
 }
 
 .selection-background {
@@ -125,6 +126,7 @@ body[data-character="tori"] {
   display: flex;
   align-items: stretch;
   min-height: 100vh;
+  z-index: 1;
 }
 
 .selection-panel::after {
@@ -159,6 +161,7 @@ body[data-character="tori"] {
   text-align: left;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 2;
 }
 
 .selection-panel-tori .selection-choice {
@@ -315,7 +318,6 @@ body[data-character="tori"] {
   background: var(--panel);
   border: 1px solid var(--border);
   box-shadow: 0 24px 60px var(--shadow);
-  backdrop-filter: blur(14px);
 }
 
 .content-box:focus {
@@ -348,7 +350,6 @@ body[data-character="tori"] {
   background: linear-gradient(135deg, rgba(7, 10, 14, 0.86), rgba(20, 15, 12, 0.78));
   border: 1px solid var(--border);
   box-shadow: 0 24px 60px var(--shadow);
-  backdrop-filter: blur(14px);
 }
 
 body[data-character="tori"] .gallery-section {

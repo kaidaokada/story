@@ -460,7 +460,6 @@ function setActiveSection(targetId, options = {}) {
   });
 
   setPageBackground(section.background);
-  document.documentElement.style.setProperty("--visibility", options.visibility || "0.2");
 
   if (options.updateHash !== false) {
     syncHash(section.id, options.replaceHash === true);
