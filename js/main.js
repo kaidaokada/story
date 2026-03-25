@@ -124,6 +124,7 @@ const GALLERY_FILE_PATTERN = /\.(avif|gif|jpe?g|png|webp)$/i;
 
 const body = document.body;
 const siteShell = document.getElementById("siteShell");
+const pageBackground = document.getElementById("pageBackground");
 const selectionScreen = document.getElementById("selectionScreen");
 const selectionButtons = Array.from(document.querySelectorAll("[data-character-choice]"));
 const audio = document.getElementById("bgm");
@@ -137,6 +138,8 @@ const legal = document.getElementById("legalOverlay");
 const openLegalBtn = document.getElementById("openLegal");
 const closeLegalBtn = document.getElementById("closeLegal");
 const openSelectionBtn = document.getElementById("openSelection");
+const jumpToGalleryBtn = document.getElementById("jumpToGallery");
+const gallerySection = document.querySelector(".gallery-section");
 const galleryGrid = document.getElementById("galleryGrid");
 const galleryTitle = document.getElementById("galleryTitle");
 const galleryCopy = document.getElementById("galleryCopy");
@@ -395,7 +398,7 @@ async function loadGallery(directory) {
 }
 
 function setPageBackground(imagePath) {
-  document.documentElement.style.setProperty("--page-background-image", `url("${imagePath}")`);
+  pageBackground.style.backgroundImage = `url("${imagePath}")`;
 }
 
 function getSectionById(sectionId) {
@@ -585,6 +588,9 @@ if (!prefersReducedMotion.matches) {
 openLegalBtn.addEventListener("click", openLegal);
 closeLegalBtn.addEventListener("click", closeLegal);
 openSelectionBtn.addEventListener("click", openSelectionScreen);
+jumpToGalleryBtn.addEventListener("click", () => {
+  gallerySection.scrollIntoView({ behavior: prefersReducedMotion.matches ? "auto" : "smooth", block: "start" });
+});
 
 legal.addEventListener("click", (event) => {
   if (event.target === legal) {
