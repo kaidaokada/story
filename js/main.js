@@ -7,7 +7,6 @@ const CHARACTER_CONFIG = {
     audioSource: "assets/audio/kaida.ogg",
     galleryDirectory: "assets/images/gallery_kaida/",
     galleryTitle: "Blicke auf Kaida",
-    galleryCopy: "Ein stiller Blick auf Kaida.",
     sections: [
       {
         id: "prolog",
@@ -67,7 +66,6 @@ const CHARACTER_CONFIG = {
     audioSource: "assets/audio/tori.ogg",
     galleryDirectory: "assets/images/gallery_tori/",
     galleryTitle: "Blicke auf Tori",
-    galleryCopy: "Ein stiller Blick auf Tori.",
     sections: [
       {
         id: "prolog",
@@ -121,10 +119,12 @@ const CHARACTER_CONFIG = {
 const AUDIO_VOLUME_KEY = "story-audio-volume";
 const AUDIO_CONSENT_KEY = "story-audio-consent";
 const GALLERY_FILE_PATTERN = /\.(avif|gif|jpe?g|png|webp)$/i;
+const BACKGROUND_FADE_MS = 650;
 
 const body = document.body;
 const siteShell = document.getElementById("siteShell");
-const pageBackground = document.getElementById("pageBackground");
+const pageBackgroundPrimary = document.getElementById("pageBackgroundPrimary");
+const pageBackgroundSecondary = document.getElementById("pageBackgroundSecondary");
 const selectionScreen = document.getElementById("selectionScreen");
 const selectionButtons = Array.from(document.querySelectorAll("[data-character-choice]"));
 const audio = document.getElementById("bgm");
@@ -142,7 +142,6 @@ const jumpToGalleryBtn = document.getElementById("jumpToGallery");
 const gallerySection = document.querySelector(".gallery-section");
 const galleryGrid = document.getElementById("galleryGrid");
 const galleryTitle = document.getElementById("galleryTitle");
-const galleryCopy = document.getElementById("galleryCopy");
 const galleryLightbox = document.getElementById("galleryLightbox");
 const galleryLightboxImage = document.getElementById("galleryLightboxImage");
 const galleryLightboxCaption = document.getElementById("galleryLightboxCaption");
@@ -161,6 +160,9 @@ let lastFocusedElement = null;
 let currentCharacterKey = null;
 let currentSections = [];
 let currentAudioLabel = "Musik";
+let activeBackgroundLayer = pageBackgroundPrimary;
+let inactiveBackgroundLayer = pageBackgroundSecondary;
+let backgroundFadeTimeoutId = null;
 
 function updateToggleLabel() {
   const isPlaying = !audio.paused;
@@ -398,7 +400,25 @@ async function loadGallery(directory) {
 }
 
 function setPageBackground(imagePath) {
-  pageBackground.style.backgroundImage = `url("${imagePath}")`;
+  if (activeBackgroundLayer.style.backgroundImage.includes(imagePath)) {
+    return;
+  }
+
+  inactiveBackgroundLayer.style.backgroundImage = `url("${imagePath}")`;
+  inactiveBackgroundLayer.classList.add("is-active");
+  activeBackgroundLayer.classList.remove("is-active");
+
+  if (backgroundFadeTimeoutId) {
+    window.clearTimeout(backgroundFadeTimeoutId);
+  }
+
+  const previousActiveLayer = activeBackgroundLayer;
+  activeBackgroundLayer = inactiveBackgroundLayer;
+  inactiveBackgroundLayer = previousActiveLayer;
+
+  backgroundFadeTimeoutId = window.setTimeout(() => {
+    inactiveBackgroundLayer.style.backgroundImage = "";
+  }, BACKGROUND_FADE_MS);
 }
 
 function getSectionById(sectionId) {
@@ -490,7 +510,6 @@ function applyCharacter(characterKey, trigger) {
   titleElement.textContent = character.title;
   subtitleElement.textContent = character.subtitle;
   galleryTitle.textContent = character.galleryTitle;
-  galleryCopy.textContent = character.galleryCopy;
 
   populateSections(character);
 
