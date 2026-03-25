@@ -147,6 +147,8 @@ const galleryGrid = document.getElementById("galleryGrid");
 const galleryLightbox = document.getElementById("galleryLightbox");
 const galleryLightboxImage = document.getElementById("galleryLightboxImage");
 const galleryLightboxCaption = document.getElementById("galleryLightboxCaption");
+const galleryPrevBtn = document.getElementById("galleryPrev");
+const galleryNextBtn = document.getElementById("galleryNext");
 const closeGalleryLightboxBtn = document.getElementById("closeGalleryLightbox");
 const items = Array.from(document.querySelectorAll(".menu-item"));
 const contents = Array.from(document.querySelectorAll(".content"));
@@ -158,13 +160,16 @@ const subtitleElement = document.getElementById("characterSubtitle");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let activeDialog = null;
-let lastFocusedElement = null;
+const dialogStack = [];
+const dialogReturnFocus = new WeakMap();
 let currentCharacterKey = null;
 let currentSections = [];
 let currentAudioLabel = "Musik";
 let activeBackgroundLayer = pageBackgroundPrimary;
 let inactiveBackgroundLayer = pageBackgroundSecondary;
 let backgroundFadeTimeoutId = null;
+let currentGalleryImages = [];
+let currentGalleryIndex = -1;
 
 function updateToggleLabel() {
   const isPlaying = !audio.paused;
@@ -186,7 +191,12 @@ function setModalState(isOpen) {
 }
 
 function openDialog(dialog, trigger) {
-  lastFocusedElement = trigger || document.activeElement;
+  dialogReturnFocus.set(dialog, trigger || document.activeElement);
+
+  if (!dialogStack.includes(dialog)) {
+    dialogStack.push(dialog);
+  }
+
   activeDialog = dialog;
   dialog.classList.remove("hidden");
   dialog.setAttribute("aria-hidden", "false");
@@ -204,9 +214,13 @@ function closeDialog(dialog) {
   dialog.classList.add("hidden");
   dialog.setAttribute("aria-hidden", "true");
 
-  if (activeDialog === dialog) {
-    activeDialog = null;
+  const stackIndex = dialogStack.indexOf(dialog);
+
+  if (stackIndex !== -1) {
+    dialogStack.splice(stackIndex, 1);
   }
+
+  activeDialog = dialogStack[dialogStack.length - 1] || null;
 
   if (!activeDialog) {
     setModalState(false);
@@ -216,8 +230,14 @@ function closeDialog(dialog) {
     openLegalBtn.setAttribute("aria-expanded", "false");
   }
 
-  if (lastFocusedElement instanceof HTMLElement) {
-    lastFocusedElement.focus();
+  if (dialog === galleryOverlay) {
+    jumpToGalleryBtn.setAttribute("aria-expanded", "false");
+  }
+
+  const returnFocusElement = dialogReturnFocus.get(dialog);
+
+  if (returnFocusElement instanceof HTMLElement) {
+    returnFocusElement.focus();
   }
 }
 
@@ -231,6 +251,10 @@ function closeLegal() {
 }
 
 function openSelectionScreen() {
+  closeDialog(legal);
+  closeDialog(consent);
+  closeDialog(galleryOverlay);
+  closeDialog(galleryLightbox);
   audio.pause();
   updateToggleLabel();
   body.dataset.character = "none";
@@ -317,11 +341,38 @@ function closeGalleryLightbox() {
 }
 
 function openGalleryOverlay() {
+  jumpToGalleryBtn.setAttribute("aria-expanded", "true");
   openDialog(galleryOverlay, jumpToGalleryBtn);
 }
 
 function closeGalleryOverlay() {
   closeDialog(galleryOverlay);
+}
+
+function showGalleryImage(index, trigger) {
+  if (currentGalleryImages.length === 0) {
+    return;
+  }
+
+  currentGalleryIndex = (index + currentGalleryImages.length) % currentGalleryImages.length;
+
+  const imagePath = currentGalleryImages[currentGalleryIndex];
+  const fileName = imagePath.split("/").pop() || imagePath;
+  const label = formatGalleryLabel(fileName);
+
+  galleryLightboxImage.src = imagePath;
+  galleryLightboxImage.alt = label;
+  galleryLightboxCaption.textContent = label;
+
+  openDialog(galleryLightbox, trigger);
+}
+
+function showPreviousGalleryImage() {
+  showGalleryImage(currentGalleryIndex - 1, galleryPrevBtn);
+}
+
+function showNextGalleryImage() {
+  showGalleryImage(currentGalleryIndex + 1, galleryNextBtn);
 }
 
 function formatGalleryLabel(fileName) {
@@ -336,6 +387,7 @@ function formatGalleryLabel(fileName) {
 function createGalleryCard(imagePath) {
   const fileName = imagePath.split("/").pop() || imagePath;
   const label = formatGalleryLabel(fileName);
+  const imageIndex = currentGalleryImages.indexOf(imagePath);
   const button = document.createElement("button");
   const image = document.createElement("img");
   const labelBox = document.createElement("span");
@@ -361,16 +413,14 @@ function createGalleryCard(imagePath) {
   button.append(image, labelBox);
 
   button.addEventListener("click", () => {
-    galleryLightboxImage.src = imagePath;
-    galleryLightboxImage.alt = label;
-    galleryLightboxCaption.textContent = label;
-    openDialog(galleryLightbox, button);
+    showGalleryImage(imageIndex, button);
   });
 
   return button;
 }
 
 function renderGallery(imagePaths) {
+  currentGalleryImages = [...imagePaths];
   galleryGrid.replaceChildren();
 
   if (imagePaths.length === 0) {
@@ -387,6 +437,7 @@ function renderGallery(imagePaths) {
 }
 
 function loadGallery(imagePaths) {
+  currentGalleryIndex = imagePaths.length > 0 ? 0 : -1;
   renderGallery(imagePaths);
 }
 
@@ -617,6 +668,9 @@ galleryOverlay.addEventListener("click", (event) => {
   }
 });
 
+galleryPrevBtn.addEventListener("click", showPreviousGalleryImage);
+galleryNextBtn.addEventListener("click", showNextGalleryImage);
+
 acceptBtn.addEventListener("click", async () => {
   saveConsent("accepted");
   closeConsent();
@@ -643,6 +697,14 @@ document.addEventListener("keydown", (event) => {
       closeGalleryOverlay();
     } else if (activeDialog === galleryLightbox) {
       closeGalleryLightbox();
+    }
+  }
+
+  if (activeDialog === galleryLightbox) {
+    if (event.key === "ArrowLeft") {
+      showPreviousGalleryImage();
+    } else if (event.key === "ArrowRight") {
+      showNextGalleryImage();
     }
   }
 });

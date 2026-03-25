@@ -44,7 +44,7 @@
         <button class="menu-item" type="button" data-target="second" aria-controls="second" aria-pressed="false"></button>
         <button class="menu-item" type="button" data-target="third" aria-controls="third" aria-pressed="false"></button>
         <button class="menu-item" type="button" data-target="fourth" aria-controls="fourth" aria-pressed="false"></button>
-        <button class="gallery-link" id="jumpToGallery" type="button">Zur Galerie</button>
+        <button class="gallery-link" id="jumpToGallery" type="button" aria-haspopup="dialog" aria-controls="galleryOverlay" aria-expanded="false">Zur Galerie</button>
       </aside>
 
       <section class="content-box" aria-live="polite">
@@ -121,6 +121,8 @@
 
   <div id="galleryLightbox" class="gallery-lightbox hidden" role="dialog" aria-modal="true" aria-labelledby="galleryLightboxTitle" aria-hidden="true">
     <div class="gallery-lightbox-card">
+      <button id="galleryPrev" class="gallery-nav gallery-nav-prev" type="button" aria-label="Vorheriges Bild">&#10094;</button>
+      <button id="galleryNext" class="gallery-nav gallery-nav-next" type="button" aria-label="Naechstes Bild">&#10095;</button>
       <button id="closeGalleryLightbox" class="close-btn" type="button" aria-label="Galerie schliessen">&#10005;</button>
       <h2 id="galleryLightboxTitle" class="sr-only">Galeriebild</h2>
       <img id="galleryLightboxImage" src="" alt="">
