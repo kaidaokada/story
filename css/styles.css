@@ -53,10 +53,7 @@ body.modal-open {
 }
 
 .page-overlay {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(110deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.68));
-  z-index: -1;
+  display: none;
 }
 
 .site-shell.hidden .page-background-layer,
@@ -117,9 +114,7 @@ body[data-character="tori"] {
 }
 
 .selection-overlay {
-  background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.54) 48%, rgba(0, 0, 0, 0.62) 52%, rgba(0, 0, 0, 0.9) 100%);
-  z-index: -2;
+  display: none;
 }
 
 .selection-panel {
@@ -168,13 +163,13 @@ body[data-character="tori"] {
 }
 
 .selection-panel-tori .selection-choice {
-  background: linear-gradient(180deg, rgba(14, 18, 23, 0.2), rgba(13, 18, 24, 0.56));
+  background: transparent;
 }
 
 .selection-panel-kaida .selection-choice {
   align-items: flex-end;
   text-align: right;
-  background: linear-gradient(180deg, rgba(21, 8, 10, 0.18), rgba(22, 9, 11, 0.56));
+  background: transparent;
 }
 
 .selection-choice:hover,
