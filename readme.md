@@ -39,4 +39,4 @@ Danach ist die Seite unter [http://localhost:8000](http://localhost:8000) erreic
 - Wenn neue Kapitel hinzukommen, sollten sie in `js/main.js` innerhalb von `CHARACTER_CONFIG` gepflegt werden.
 - Wenn neue Galeriebilder hinzukommen, müssen ihre Dateinamen in `js/main.js` innerhalb von `galleryImages` gepflegt werden.
 - Falls Audio ersetzt wird, sollte das Format weiterhin als `.ogg` vorliegen oder mit zusaetzlichen Quellen erweitert werden.
-- Externe Schriftarten werden derzeit über Google Fonts geladen; ohne Netzwerk greift die lokale Serif-Fallback-Kette.
+- Die verwendeten Schriftarten liegen lokal in `assets/fonts`, sodass keine externen Font-Anfragen nötig sind.
