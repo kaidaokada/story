@@ -6,7 +6,7 @@ Atmosphärische Single-Page-Story für zwei Figuren, Kaida Okada und Torinai Nih
 
 - `index.html`: Charakterauswahl, gemeinsame Seitenhülle, Audio- und Dialog-Markup
 - `css/styles.css`: Selection-Screen, Charakter-Themes, Layout, Overlay-Galerie und Dialog-Styling
-- `js/main.js`: Charakterdaten, Kapitelwechsel, statische Galerielisten, Audio-Steuerung, Overlay-Logik und Consent-Speicherung
+- `js/main.js`: Charakterdaten, Kapitelwechsel, statische Galerielisten, Audio-Steuerung und Overlay-Logik
 - `assets/images/backgrounds/selection/torikaida.png`: Hintergrund der Charakterauswahl
 - `assets/images/backgrounds/Kaida`: Kaidas Hintergründe
 - `assets/images/backgrounds/Tori`: Toris Hintergründe
@@ -19,7 +19,7 @@ Atmosphärische Single-Page-Story für zwei Figuren, Kaida Okada und Torinai Nih
 - Beim Laden erscheint immer zuerst die Charakterauswahl.
 - Kapitel werden danach ohne Seitenwechsel umgeschaltet.
 - Die aktive Sektion kann ueber den URL-Hash direkt verlinkt werden.
-- Lautstaerke und Audio-Consent werden in `localStorage` gespeichert, falls verfuegbar.
+- Lautstärke und Audio-Freigabe gelten nur für den aktuellen Besuch und werden nicht im Browser gespeichert.
 - Bei reduziertem Bewegungsschema werden Maus-Parallax und Animationen abgeschwaecht.
 - Die Galerie öffnet als Overlay mit Thumbnail-Raster und navigierbarer Vollansicht.
 - Die Galerie wird statisch aus den Bildlisten in `js/main.js` aufgebaut. Neue Bilder müssen dort pro Charakter in `galleryImages` eingetragen werden.

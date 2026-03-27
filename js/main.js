@@ -119,8 +119,6 @@
   }
 };
 
-const AUDIO_VOLUME_KEY = "story-audio-volume";
-const AUDIO_CONSENT_KEY = "story-audio-consent";
 const BACKGROUND_FADE_MS = 650;
 
 const body = document.body;
@@ -268,41 +266,7 @@ function closeSelectionScreen() {
   siteShell.classList.remove("hidden");
 }
 
-function saveVolume() {
-  try {
-    localStorage.setItem(AUDIO_VOLUME_KEY, slider.value);
-  } catch (_error) {
-    // Ignore storage issues.
-  }
-}
-
-function saveConsent(value) {
-  try {
-    localStorage.setItem(AUDIO_CONSENT_KEY, value);
-  } catch (_error) {
-    // Ignore storage issues.
-  }
-}
-
-function getStoredConsent() {
-  try {
-    return localStorage.getItem(AUDIO_CONSENT_KEY);
-  } catch (_error) {
-    return null;
-  }
-}
-
 function loadVolume() {
-  try {
-    const savedVolume = localStorage.getItem(AUDIO_VOLUME_KEY);
-
-    if (savedVolume !== null) {
-      slider.value = savedVolume;
-    }
-  } catch (_error) {
-    // Ignore storage issues.
-  }
-
   audio.volume = Number.parseFloat(slider.value) || 0.75;
 }
 
@@ -319,20 +283,6 @@ function closeConsent() {
 }
 
 function maybeAskForAudio(trigger) {
-  const savedConsent = getStoredConsent();
-
-  if (savedConsent === "accepted") {
-    playAudio();
-    updateToggleLabel();
-    return;
-  }
-
-  if (savedConsent === "declined") {
-    audio.pause();
-    updateToggleLabel();
-    return;
-  }
-
   openDialog(consent, trigger);
 }
 
@@ -609,7 +559,6 @@ function trapFocus(event) {
 
 slider.addEventListener("input", () => {
   audio.volume = Number.parseFloat(slider.value) || 0;
-  saveVolume();
 });
 
 toggle.addEventListener("click", async () => {
@@ -672,14 +621,12 @@ galleryPrevBtn.addEventListener("click", showPreviousGalleryImage);
 galleryNextBtn.addEventListener("click", showNextGalleryImage);
 
 acceptBtn.addEventListener("click", async () => {
-  saveConsent("accepted");
   closeConsent();
   await playAudio();
   updateToggleLabel();
 });
 
 declineBtn.addEventListener("click", () => {
-  saveConsent("declined");
   closeConsent();
   audio.pause();
   updateToggleLabel();
