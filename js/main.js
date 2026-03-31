@@ -96,7 +96,7 @@
         id: "third",
         nav: "Tori - Die Söldnerin",
         title: "Tori - Die Söldnerin",
-        background: "assets/images/backgrounds/Tori/background_tori_b.png",
+        background: "assets/images/backgrounds/Tori/background_tori_soldner.png",
         paragraphs: [
           "Toris Erwachsenenleben war lange von der Arbeit als Söldnerin bestimmt. Sie reiste weit, sah mehr von der Welt, als sie je für möglich gehalten hätte, und lernte an ungezählten Orten, wie teuer Sicherheit oft erkauft wird.",
           "Auf diesen Wegen begegnete sie Liebe und Verlust, aber auch dem unbedingten Wunsch, jemanden wirklich schützen zu wollen. Dieser Wunsch veränderte sie tiefer als jede Schlacht. Er gab ihrem Leben Richtung, Verantwortung und einen Grund, über sich selbst hinauszuwachsen.",
