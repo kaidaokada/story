@@ -39,34 +39,13 @@
     </header>
 
     <main class="layout">
-      <aside class="menu" aria-label="Kapitel">
-        <button class="menu-item active" type="button" data-target="prolog" aria-controls="prolog" aria-pressed="true"></button>
-        <button class="menu-item" type="button" data-target="second" aria-controls="second" aria-pressed="false"></button>
-        <button class="menu-item" type="button" data-target="third" aria-controls="third" aria-pressed="false"></button>
-        <button class="menu-item" type="button" data-target="fourth" aria-controls="fourth" aria-pressed="false"></button>
+      <aside class="menu" id="menu" aria-label="Kapitel">
+        <div id="menuItems"></div>
         <button class="gallery-link" id="jumpToGallery" type="button" aria-haspopup="dialog" aria-controls="galleryOverlay" aria-expanded="false">Zur Galerie</button>
       </aside>
 
-      <section class="content-box" aria-live="polite">
-        <article class="content active" id="prolog">
-          <h2></h2>
-          <div class="content-body"></div>
-        </article>
-
-        <article class="content" id="second" hidden>
-          <h2></h2>
-          <div class="content-body"></div>
-        </article>
-
-        <article class="content" id="third" hidden>
-          <h2></h2>
-          <div class="content-body"></div>
-        </article>
-
-        <article class="content" id="fourth" hidden>
-          <h2></h2>
-          <div class="content-body"></div>
-        </article>
+      <section class="content-box" id="contentBox" aria-live="polite">
+        <div id="contentItems"></div>
       </section>
     </main>
 

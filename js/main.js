@@ -4,7 +4,18 @@
     eyebrow: "\u8A18\u61B6\u3068\u5F71\u306E\u7269\u8A9E",
     subtitle: "Eine Geschichte zwischen Erinnerung, Verlust und dem, was im Schatten überlebt.",
     audioLabel: "Mukon no Hana",
-    audioSource: "assets/audio/kaida.ogg",
+    audioTracks: [
+      {
+        label: "Mukon no Hana",
+        src: "assets/audio/kaida.ogg",
+        loop: false
+      },
+      {
+        label: "Bossfight",
+        src: "assets/audio/bossfight.ogg",
+        loop: true
+      }
+    ],
     galleryImages: [
       "assets/images/gallery_kaida/kaida_glare.png",
       "assets/images/gallery_kaida/kaida_sporty.png"
@@ -57,6 +68,18 @@
           "Über ihre Kindheit spricht Kaida nicht. Es ist kein Zögern und kein Ausweichen, sondern eine bewusste Entscheidung. Sie weiß genau, woher sie kommt, kennt ihre Ursprünge bis ins Detail, doch dieser Teil ihrer Geschichte bleibt verschlossen.",
           "Vielleicht, weil er Antworten liefern würde, die niemand hören will. Vielleicht, weil er ein Bild zeichnen würde, das nicht zu dem passt, was man heute sieht. Oder vielleicht, weil genau dort der Punkt liegt, an dem Kaida selbst aufgehört hat, zurückzublicken."
         ]
+      },
+      {
+        id: "fifth",
+        nav: "Von Schöpfung und Zerstörung",
+        title: "Von Schöpfung und Zerstörung",
+        background: "assets/images/backgrounds/Kaida/zerstoerung.png",
+        hiddenUntilTrack: 1,
+        paragraphs: [
+          "Kaidas Ausbildung zur Kunoichi verlangte nie nur Disziplin. Sie verlangte die völlige Zerschlagung jeder Grenze, die ein Mensch instinktiv zieht, wenn Schmerz, Erschöpfung und Schuld zu groß werden. Genau dort begann etwas in ihr zu wachsen, das mit Können allein nicht mehr zu beschreiben ist.",
+          "Sie lernte, ihren Körper mit absoluter Präzision zu führen. Jeder Atemzug, jede Haltung, jede Kraftreserve gehorcht ihr. Doch dieselbe Kontrolle hat einen Preis, weil sie auf einem Fundament ruht, das aus Gewalt, Überdehnung und zahllosen Leben gebaut wurde, die in diesem Training bedeutungslos waren.",
+          "Deshalb benutzt Kaida diese Kraft nicht mit gutem Gewissen. Nicht, weil sie an ihrer Fähigkeit zweifelt, sondern weil sie genau weiß, wie leicht Perfektion in Vernichtung kippen kann, wenn ein einziger Moment der Unachtsamkeit genügt. Wer kann schon sagen, dass nicht eines Tages wieder ein Leben an ihr hängen bleibt. Eines mehr, von so unendlich vielen."
+        ]
       }
     ]
   },
@@ -65,7 +88,13 @@
     eyebrow: "Mondwächterin",
     subtitle: "Mondwächterin",
     audioLabel: "Torinai Nihal",
-    audioSource: "assets/audio/tori.ogg",
+    audioTracks: [
+      {
+        label: "Torinai Nihal",
+        src: "assets/audio/tori.ogg",
+        loop: true
+      }
+    ],
     galleryImages: [
       "assets/images/gallery_tori/tori_example.png"
     ],
@@ -127,6 +156,7 @@ const pageBackgroundPrimary = document.getElementById("pageBackgroundPrimary");
 const pageBackgroundSecondary = document.getElementById("pageBackgroundSecondary");
 const selectionScreen = document.getElementById("selectionScreen");
 const selectionButtons = Array.from(document.querySelectorAll("[data-character-choice]"));
+const menuItemsContainer = document.getElementById("menuItems");
 const audio = document.getElementById("bgm");
 const audioSource = document.getElementById("bgmSource");
 const toggle = document.getElementById("audioToggle");
@@ -148,9 +178,8 @@ const galleryLightboxCaption = document.getElementById("galleryLightboxCaption")
 const galleryPrevBtn = document.getElementById("galleryPrev");
 const galleryNextBtn = document.getElementById("galleryNext");
 const closeGalleryLightboxBtn = document.getElementById("closeGalleryLightbox");
-const items = Array.from(document.querySelectorAll(".menu-item"));
-const contents = Array.from(document.querySelectorAll(".content"));
-const contentBox = document.querySelector(".content-box");
+const contentItemsContainer = document.getElementById("contentItems");
+const contentBox = document.getElementById("contentBox");
 const audioStatus = document.getElementById("audioStatus");
 const titleElement = document.getElementById("characterTitle");
 const eyebrowElement = document.getElementById("characterEyebrow");
@@ -162,6 +191,8 @@ const dialogStack = [];
 const dialogReturnFocus = new WeakMap();
 let currentCharacterKey = null;
 let currentSections = [];
+let currentAudioTracks = [];
+let currentTrackIndex = 0;
 let currentAudioLabel = "Musik";
 let activeBackgroundLayer = pageBackgroundPrimary;
 let inactiveBackgroundLayer = pageBackgroundSecondary;
@@ -414,7 +445,18 @@ function setPageBackground(imagePath) {
 }
 
 function getSectionById(sectionId) {
-  return currentSections.find((section) => section.id === sectionId) || currentSections[0];
+  const visibleSections = getVisibleSections();
+  return visibleSections.find((section) => section.id === sectionId) || visibleSections[0];
+}
+
+function getVisibleSections() {
+  return currentSections.filter((section) => {
+    if (typeof section.hiddenUntilTrack !== "number") {
+      return true;
+    }
+
+    return currentTrackIndex >= section.hiddenUntilTrack;
+  });
 }
 
 function syncHash(sectionId, replace = false) {
@@ -438,6 +480,9 @@ function setActiveSection(targetId, options = {}) {
   if (!section) {
     return;
   }
+
+  const items = Array.from(menuItemsContainer.querySelectorAll(".menu-item"));
+  const contents = Array.from(contentItemsContainer.querySelectorAll(".content"));
 
   items.forEach((item) => {
     const isActive = item.dataset.target === section.id;
@@ -463,38 +508,111 @@ function setActiveSection(targetId, options = {}) {
   }
 }
 
-function populateSections(character) {
+function createMenuItem(section, isActive = false) {
+  const button = document.createElement("button");
+  button.className = `menu-item${isActive ? " active" : ""}`;
+  button.type = "button";
+  button.dataset.target = section.id;
+  button.setAttribute("aria-controls", section.id);
+  button.setAttribute("aria-pressed", String(isActive));
+  button.textContent = section.nav;
+  return button;
+}
+
+function createContentSection(section, isActive = false) {
+  const article = document.createElement("article");
+  const heading = document.createElement("h2");
+  const bodyContainer = document.createElement("div");
+
+  article.className = `content${isActive ? " active" : ""}`;
+  article.id = section.id;
+  article.hidden = !isActive;
+
+  heading.textContent = section.title;
+  bodyContainer.className = "content-body";
+  bodyContainer.replaceChildren(
+    ...section.paragraphs.map((paragraph) => {
+      const element = document.createElement("p");
+      element.textContent = paragraph;
+      return element;
+    })
+  );
+
+  article.append(heading, bodyContainer);
+  return article;
+}
+
+function populateSections(character, activeSectionId = "prolog") {
   currentSections = character.sections;
+  const visibleSections = getVisibleSections();
+  const nextActiveSectionId = visibleSections.some((section) => section.id === activeSectionId)
+    ? activeSectionId
+    : visibleSections[0]?.id;
 
-  items.forEach((item, index) => {
-    const section = character.sections[index];
-    item.dataset.target = section.id;
-    item.setAttribute("aria-controls", section.id);
-    item.textContent = section.nav;
-  });
+  menuItemsContainer.replaceChildren(
+    ...visibleSections.map((section) => createMenuItem(section, section.id === nextActiveSectionId))
+  );
 
-  contents.forEach((content, index) => {
-    const section = character.sections[index];
-    const heading = content.querySelector("h2");
-    const bodyContainer = content.querySelector(".content-body");
+  contentItemsContainer.replaceChildren(
+    ...visibleSections.map((section) => createContentSection(section, section.id === nextActiveSectionId))
+  );
+}
 
-    content.id = section.id;
-    heading.textContent = section.title;
-    bodyContainer.replaceChildren(
-      ...section.paragraphs.map((paragraph) => {
-        const element = document.createElement("p");
-        element.textContent = paragraph;
-        return element;
-      })
-    );
-  });
+function updateAudioSource(trackIndex) {
+  const track = currentAudioTracks[trackIndex];
+
+  if (!track) {
+    return;
+  }
+
+  currentTrackIndex = trackIndex;
+  currentAudioLabel = track.label || CHARACTER_CONFIG[currentCharacterKey]?.audioLabel || "Musik";
+  audio.pause();
+  audio.loop = track.loop === true;
+  audioSource.src = track.src;
+  audio.load();
+  updateToggleLabel();
+}
+
+function maybeRevealTrackLockedSections() {
+  const visibleSectionIds = new Set(getVisibleSections().map((section) => section.id));
+  const renderedSectionIds = new Set(
+    Array.from(menuItemsContainer.querySelectorAll(".menu-item")).map((item) => item.dataset.target)
+  );
+
+  if (visibleSectionIds.size === renderedSectionIds.size) {
+    return;
+  }
+
+  const activeSectionId =
+    menuItemsContainer.querySelector(".menu-item.active")?.dataset.target || getVisibleSections()[0]?.id;
+
+  populateSections(CHARACTER_CONFIG[currentCharacterKey], activeSectionId);
+}
+
+async function advanceToNextTrack() {
+  if (currentTrackIndex >= currentAudioTracks.length - 1) {
+    updateToggleLabel();
+    return;
+  }
+
+  updateAudioSource(currentTrackIndex + 1);
+  maybeRevealTrackLockedSections();
+  await playAudio();
 }
 
 function applyCharacter(characterKey, trigger) {
   const character = CHARACTER_CONFIG[characterKey];
 
   currentCharacterKey = characterKey;
-  currentAudioLabel = character.audioLabel;
+  currentAudioTracks = character.audioTracks || [
+    {
+      label: character.audioLabel,
+      src: character.audioSource,
+      loop: true
+    }
+  ];
+  currentTrackIndex = 0;
   body.dataset.character = characterKey;
 
   eyebrowElement.textContent = character.eyebrow;
@@ -502,11 +620,7 @@ function applyCharacter(characterKey, trigger) {
   subtitleElement.textContent = character.subtitle;
 
   populateSections(character);
-
-  audio.pause();
-  audioSource.src = character.audioSource;
-  audio.load();
-  updateToggleLabel();
+  updateAudioSource(0);
 
   closeSelectionScreen();
   handleHashNavigation();
@@ -571,10 +685,14 @@ toggle.addEventListener("click", async () => {
   updateToggleLabel();
 });
 
-items.forEach((item) => {
-  item.addEventListener("click", () => {
-    setActiveSection(item.dataset.target);
-  });
+menuItemsContainer.addEventListener("click", (event) => {
+  const target = event.target.closest(".menu-item");
+
+  if (!(target instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  setActiveSection(target.dataset.target);
 });
 
 selectionButtons.forEach((button) => {
@@ -660,7 +778,9 @@ window.addEventListener("hashchange", handleHashNavigation);
 
 audio.addEventListener("play", updateToggleLabel);
 audio.addEventListener("pause", updateToggleLabel);
-audio.addEventListener("ended", updateToggleLabel);
+audio.addEventListener("ended", () => {
+  advanceToNextTrack();
+});
 
 galleryLightbox.addEventListener("click", (event) => {
   if (event.target === galleryLightbox) {

@@ -288,6 +288,12 @@ body[data-character="tori"] {
   gap: 14px;
 }
 
+#menuItems {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
 .gallery-link {
   align-self: flex-start;
   margin-top: 10px;
