@@ -11,7 +11,7 @@
         loop: false
       },
       {
-        label: "Bossfight",
+        label: "OKADA",
         src: "assets/audio/bossfight.ogg",
         loop: true
       }
