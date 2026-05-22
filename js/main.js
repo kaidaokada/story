@@ -90,11 +90,6 @@
     audioLabel: "Torinai Nihal",
     audioTracks: [
       {
-        label: "For my Moon, my little Star",
-        src: "assets/audio/tori.ogg",
-        loop: false
-      },
-      {
         label: "For my Moon, my little Star - Epic",
         src: "assets/audio/tori_epic.ogg",
         loop: true
