@@ -127,6 +127,9 @@ body[data-character="tori"] {
   overflow: hidden;
   isolation: isolate;
   z-index: 20;
+  background:
+    radial-gradient(circle at top left, rgba(182, 190, 202, 0.18), transparent 38%),
+    linear-gradient(135deg, #11161d 0%, #171f29 46%, #2b1114 100%);
 }
 
 .selection-background,
@@ -196,6 +199,13 @@ body[data-character="tori"] {
   background: transparent;
 }
 
+.selection-panel-tori .selection-choice-disabled {
+  cursor: default;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(29, 35, 44, 0.46), rgba(20, 28, 36, 0.82));
+  opacity: 0.78;
+}
+
 .selection-panel-kaida .selection-choice {
   align-items: flex-end;
   text-align: right;
@@ -211,6 +221,12 @@ body[data-character="tori"] {
 .selection-panel-tori .selection-choice:hover,
 .selection-panel-tori .selection-choice:focus-visible {
   background: linear-gradient(180deg, rgba(29, 35, 44, 0.3), rgba(20, 28, 36, 0.72));
+}
+
+.selection-panel-tori .selection-choice-disabled:hover,
+.selection-panel-tori .selection-choice-disabled:focus-visible {
+  transform: none;
+  background: linear-gradient(180deg, rgba(29, 35, 44, 0.46), rgba(20, 28, 36, 0.82));
 }
 
 .selection-panel-kaida .selection-choice:hover,
