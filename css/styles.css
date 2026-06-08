@@ -127,9 +127,6 @@ body[data-character="tori"] {
   overflow: hidden;
   isolation: isolate;
   z-index: 20;
-  background:
-    radial-gradient(circle at top left, rgba(182, 190, 202, 0.18), transparent 38%),
-    linear-gradient(135deg, #11161d 0%, #171f29 46%, #2b1114 100%);
 }
 
 .selection-background,
@@ -202,8 +199,8 @@ body[data-character="tori"] {
 .selection-panel-tori .selection-choice-disabled {
   cursor: default;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(29, 35, 44, 0.46), rgba(20, 28, 36, 0.82));
-  opacity: 0.78;
+  background: rgba(0, 0, 0, 0.88);
+  opacity: 1;
 }
 
 .selection-panel-kaida .selection-choice {
@@ -226,7 +223,7 @@ body[data-character="tori"] {
 .selection-panel-tori .selection-choice-disabled:hover,
 .selection-panel-tori .selection-choice-disabled:focus-visible {
   transform: none;
-  background: linear-gradient(180deg, rgba(29, 35, 44, 0.46), rgba(20, 28, 36, 0.82));
+  background: rgba(0, 0, 0, 0.88);
 }
 
 .selection-panel-kaida .selection-choice:hover,
