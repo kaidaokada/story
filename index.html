@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Charakterseiten fuer Kaida Okada und Torinai Nihal zwischen Erinnerung, Herkunft und Identitaet.">
+  <meta name="description" content="Charakterseite fuer Torinai Nihal zwischen Herkunft, Verlust und Identitaet.">
   <meta name="theme-color" content="#060709">
-  <title>Kaida Okada | Torinai Nihal</title>
+  <title>Torinai Nihal</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-character="none">
-  <div class="selection-screen" id="selectionScreen" aria-labelledby="selectionTitle">
+  <div class="selection-screen selection-screen--single" id="selectionScreen" aria-labelledby="selectionTitle">
     <img class="selection-background" src="assets/images/backgrounds/selection/torikaida.png" alt="" aria-hidden="true">
     <div class="selection-overlay"></div>
     <div class="selection-panel selection-panel-tori">
@@ -18,8 +18,8 @@
         <span class="selection-name">Torinai Nihal</span>
       </button>
     </div>
-    <div class="selection-panel selection-panel-kaida">
-      <button class="selection-choice" type="button" data-character-choice="kaida">
+    <div class="selection-panel selection-panel-kaida hidden" aria-hidden="true">
+      <button class="selection-choice" type="button" data-character-choice="kaida" tabindex="-1">
         <span class="selection-label">Erinnerung und Schatten</span>
         <span class="selection-name">Kaida Okada</span>
       </button>
@@ -67,8 +67,8 @@
     </audio>
 
     <div class="footer-actions">
-      <div class="character-button">
-        <button id="openSelection" type="button" aria-haspopup="dialog" aria-controls="selectionScreen">Charakter wechseln</button>
+      <div class="character-button hidden" aria-hidden="true">
+        <button id="openSelection" type="button" aria-haspopup="dialog" aria-controls="selectionScreen" tabindex="-1">Charakter wechseln</button>
       </div>
 
       <div class="legal-button">

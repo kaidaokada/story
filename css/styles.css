@@ -129,6 +129,10 @@ body[data-character="tori"] {
   z-index: 20;
 }
 
+.selection-screen--single {
+  grid-template-columns: 1fr;
+}
+
 .selection-background,
 .selection-overlay {
   position: absolute;
@@ -171,6 +175,24 @@ body[data-character="tori"] {
 
 .selection-panel-kaida::after {
   left: 0;
+}
+
+.selection-screen--single .selection-panel::after {
+  display: none;
+}
+
+.selection-screen--single .selection-panel {
+  justify-content: center;
+}
+
+.selection-screen--single .selection-choice {
+  align-items: center;
+  text-align: center;
+  padding: 10vh 8vw;
+}
+
+.selection-screen--single .selection-name {
+  max-width: none;
 }
 
 .selection-choice {
